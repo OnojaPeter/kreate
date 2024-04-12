@@ -38,14 +38,14 @@
                         <label for="title">
                             <img src="images/search-icon.png" alt="">
                         </label>
-                        <input class="outline-none" type="text" name="title" placeholder="Enter job title, keyword">
+                        <input class="outline-none bg-transparent" type="text" name="title" placeholder="Enter job title, keyword">
     
                         <span class="h-14 w-[2px] bg-[#10B981]"></span>
     
                         <label for="search-location">
                             <img src="images/location-icon.png" alt="">
                         </label>
-                        <input class="outline-none" type="text" name="search-location" placeholder="Search Location">
+                        <input class="outline-none bg-transparent" type="text" name="search-location" placeholder="Search Location">
     
                         <button class="rounded-3xl bg-[#10B981] text-white h-14 px-6 border-2" type="submit">Search</button>
                         
@@ -59,14 +59,14 @@
             
         </section>
         
-        <section class="bg-[#60EEBF80] h-screen">
-            <div class="flex flex-row justify-between mx-10 md:mx-12 mx-28">
+        <section class="bg-[#60EEBF80] h-screen flex flex-col justify-center relative">
+            <div class="flex flex-row justify-between mx-10 md:mx-12 mx-28 absolute top-7">
                 <h2>Explore by categories</h2>
                 <h3 class="flex flex-row items-center gap-2">Show all jobs <span><img src="images/Arrow.png" alt="right arraow icon"></span></h3>
             </div>
 
-            <div class="flex flex-wrap justify-between mx-10 md:mx-16 lg:mx-36">
-                <div class="bg-white p-4 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+            <div class="flex flex-wrap justify-between mx-10 md:mx-16 lg:mx-36 md:gap-8 lg:gap-12" id="categories">
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
                     <img src="images/design-icon.png" alt="">
                     <h3>Design</h3>
                     <div class="flex flex-row items-center justify-between">
@@ -74,7 +74,7 @@
                         <img src="images/Arrow.png" alt="right arraow icon">
                     </div>                   
                 </div>
-                <div class="bg-white p-4 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
                     <img src="images/design-icon.png" alt="">
                     <h3>Design</h3>
                     <div class="flex flex-row items-center justify-between">
@@ -82,7 +82,7 @@
                         <img src="images/Arrow.png" alt="right arraow icon">
                     </div>                   
                 </div>
-                <div class="bg-white p-4 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
                     <img src="images/design-icon.png" alt="">
                     <h3>Design</h3>
                     <div class="flex flex-row items-center justify-between">
@@ -90,13 +90,59 @@
                         <img src="images/Arrow.png" alt="right arraow icon">
                     </div>                   
                 </div>
-                <div class="bg-white p-4 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
                     <img src="images/design-icon.png" alt="">
                     <h3>Design</h3>
                     <div class="flex flex-row items-center justify-between">
                         <p>25+ jobs available</p>
                         <img src="images/Arrow.png" alt="right arraow icon">
                     </div>                   
+                </div>
+
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+                    <img src="images/design-icon.png" alt="">
+                    <h3>Design</h3>
+                    <div class="flex flex-row items-center justify-between">
+                        <p>25+ jobs available</p>
+                        <img src="images/Arrow.png" alt="right arraow icon">
+                    </div>                   
+                </div>
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+                    <img src="images/design-icon.png" alt="">
+                    <h3>Design</h3>
+                    <div class="flex flex-row items-center justify-between">
+                        <p>25+ jobs available</p>
+                        <img src="images/Arrow.png" alt="right arraow icon">
+                    </div>                   
+                </div>
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+                    <img src="images/design-icon.png" alt="">
+                    <h3>Design</h3>
+                    <div class="flex flex-row items-center justify-between">
+                        <p>25+ jobs available</p>
+                        <img src="images/Arrow.png" alt="right arraow icon">
+                    </div>                   
+                </div>
+                <div class="bg-white px-6 pb-6 pt-3 rounded-lg w-[100%] sm:w-[40%] md:w-[30%] lg:w-[20%]">
+                    <img src="images/design-icon.png" alt="">
+                    <h3>Design</h3>
+                    <div class="flex flex-row items-center justify-between">
+                        <p>25+ jobs available</p>
+                        <img src="images/Arrow.png" alt="right arraow icon">
+                    </div>                   
+                </div>
+            </div>
+
+            <div class="bg-white mx-10 md:mx-16 lg:mx-36 rounded-lg absolute -bottom-[10%]">
+                <div class="flex items-center justify-between mx-20">
+                    <h1 class="sm:text-3xl md:text-4xl lg:text-5xl">Get <span class="text-[#10B981]">Job Alert?</span></h1>
+
+                    <form action="" class="flex flex-row border-[#10B981] border-2 rounded-3xl items-center justify-between pl-4 mt-12">   
+                        <input class="outline-none bg-transparent" type="text" name="subscribe" placeholder="Enter your email">
+    
+                        <button class="rounded-3xl bg-[#10B981] text-white h-14 px-6 border-2" type="submit">Subscribe</button>
+                        
+                    </form>
                 </div>
             </div>
             
