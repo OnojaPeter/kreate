@@ -13,7 +13,10 @@ header a {
     height: 100vh;
     background-image: linear-gradient(to bottom, #60EEBF80 93%, #D9D9D9 93%);
 }
+.categories-box {
+    box-shadow: 0px 4px 4px 0px #00000040;
 
+}
 
 /* .colored-section-div {
     background-color: #60EEBF80;
@@ -26,6 +29,8 @@ header a {
     display: flex;
     justify-content: center;
 } */
+
+
 #landingPage, #categories{
     max-height: 850px;
 }
