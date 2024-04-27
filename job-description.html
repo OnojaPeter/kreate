@@ -69,7 +69,7 @@
                 <img src="images/Logo-Kreate.png" alt="Kreate Logo">
             </div>
             <div class="gap-4 hidden md:flex md:gap-14">
-                <a href="">Home</a>
+                <a href="/home.html">Home</a>
                 <a href="">Find jobs</a>
                 <a href="">Post jobs</a>
             </div>
@@ -82,8 +82,10 @@
     </header>
 
     <main class=" mt-10">
-        <section class="  relative flex flex-col gap-16 justify-center items-center">
-            <div class="h1-text w-[100%]">
+        <section class=" pb-14 flex flex-col items-center">
+            <div class="max-page-width  relative flex flex-col gap-16 justify-center items-center">
+            
+                <div class="h1-text w-[100%]">
                 <div>
                     <h1 class="text-center text-2xl sm:text-3xl md:text-5xl font-semibold">Discover more than <span class="text-[#10B981]">5000+ jobs</span></h1>
                     
@@ -109,346 +111,349 @@
 
                     <!-- <p>Popular searches : UI Designer, UX Researcher, Android, Admin</p> -->
                 </div>
-            </div>
+                </div>
             
-            <div class="w-full md:px-32 flex flex-col md:flex-row md:justify-between">
-                <div class="w-[100%] md:w-[25%]" id="filters">
-                    <div class="flex flex-row md:gap-y-4 md:flex-col">
-                        <div class="flex flex-col gap-y-2">
-                            <div class="flex justify-between">
-                                <span class="font-semibold text-2xl">Job Type</span> 
-                                <div class="flex items-center">
-                                    <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
-                                </div>
-                            </div>                          
-
-                            <div>
-                                <ul class="flex flex-col gap-y-2">
-                                    <li>
-                                        <input type="checkbox" id="fullTime" name="fullTime" value="fullTime">
-                                        <label for="fullTime">Full time</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="partTime" name="partTime" value="partTime">
-                                        <label for="partTime">Part time</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="remote" name="remote" value="remote">
-                                        <label for="remote">Remote</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="internship" name="internship" value="internship">
-                                        <label for="internship">Internship</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="contract" name="contract" value="contract">
-                                        <label for="contract">Contract</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col gap-y-2">
-                            <div class="flex justify-between">
-                                <span class="font-semibold text-2xl">Job Category</span> 
-                                <div class="flex items-center">
-                                    <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
-                                </div>
-                            </div> 
-
-                            <div>
-                                <ul class="flex flex-col gap-y-2">
-                                    <li>
-                                        <input type="checkbox" id="design" name="design" value="design">
-                                        <label for="design">Design</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="sales" name="sales" value="sales">
-                                        <label for="sales">Sales</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="marketing" name="marketing" value="marketing">
-                                        <label for="marketing">Marketing</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="finance" name="finance" value="finance">
-                                        <label for="finance">Finance</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="technology" name="technology" value="technology">
-                                        <label for="technology">Technology</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="engineering" name="engineering" value="engineering">
-                                        <label for="engineering">Engineering</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="business" name="business" value="business">
-                                        <label for="business">Business</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="humanResource" name="humanResource" value="humanResource">
-                                        <label for="humanResource">Human Resource</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col gap-y-2">
-                            <div class="flex justify-between">
-                                <span class="font-semibold text-2xl">Job Level</span> 
-                                <div class="flex items-center">
-                                    <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
+            
+                <div class="w-full px-10 md:px-12 lg:px-28 flex flex-col md:flex-row md:justify-between">
+                    <div class="w-[100%] md:w-[25%]" id="filters">
+                        <div class="flex flex-row md:gap-y-4 md:flex-col">
+                            <div class="flex flex-col gap-y-2">
+                                <div class="flex justify-between">
+                                    <span class="font-semibold text-2xl">Job Type</span> 
+                                    <div class="flex items-center">
+                                        <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
+                                    </div>
+                                </div>                          
+    
+                                <div>
+                                    <ul class="flex flex-col gap-y-2">
+                                        <li>
+                                            <input type="checkbox" id="fullTime" name="fullTime" value="fullTime">
+                                            <label for="fullTime">Full time</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="partTime" name="partTime" value="partTime">
+                                            <label for="partTime">Part time</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="remote" name="remote" value="remote">
+                                            <label for="remote">Remote</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="internship" name="internship" value="internship">
+                                            <label for="internship">Internship</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="contract" name="contract" value="contract">
+                                            <label for="contract">Contract</label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-
-                            <div>
-                                <ul class="flex flex-col gap-y-2">
-                                    <li>
-                                        <input type="checkbox" id="entryLevel" name="entryLevel" value="entryLevel">
-                                        <label for="entryLevel">Entry Level</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="midLevel" name="midLevel" value="midLevel">
-                                        <label for="midLevel">MidLevel</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="seniorLevel" name="seniorLevel" value="seniorLevel">
-                                        <label for="seniorLevel">Senior Level</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="director" name="director" value="director">
-                                        <label for="director">Director</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="vpOrAbove" name="vpOrAbove" value="vpOrAbove">
-                                        <label for="vpOrAbove">VP or above</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="flex flex-col gap-y-2">
-                            <div class="flex justify-between">
-                                <span class="font-semibold text-2xl">Salary Range</span> 
-                                <div class="flex items-center">
-                                    <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
+    
+                            <div class="flex flex-col gap-y-2">
+                                <div class="flex justify-between">
+                                    <span class="font-semibold text-2xl">Job Category</span> 
+                                    <div class="flex items-center">
+                                        <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
+                                    </div>
+                                </div> 
+    
+                                <div>
+                                    <ul class="flex flex-col gap-y-2">
+                                        <li>
+                                            <input type="checkbox" id="design" name="design" value="design">
+                                            <label for="design">Design</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="sales" name="sales" value="sales">
+                                            <label for="sales">Sales</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="marketing" name="marketing" value="marketing">
+                                            <label for="marketing">Marketing</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="finance" name="finance" value="finance">
+                                            <label for="finance">Finance</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="technology" name="technology" value="technology">
+                                            <label for="technology">Technology</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="engineering" name="engineering" value="engineering">
+                                            <label for="engineering">Engineering</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="business" name="business" value="business">
+                                            <label for="business">Business</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="humanResource" name="humanResource" value="humanResource">
+                                            <label for="humanResource">Human Resource</label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-
-                            <div>
-                                <ul class="flex flex-col gap-y-2">
-                                    <li>
-                                        <input type="checkbox" id="salary5" name="salary5" value="salary5">
-                                        <label for="salary5">$5 - $100</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="salary100" name="salary100" value="salary100">
-                                        <label for="salary100">$100 - $1000</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="salary1000" name="salary1000" value="salary1000">
-                                        <label for="salary1000">$1000 - $5000</label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="salary5000" name="salary5000" value="salary5000">
-                                        <label for="salary5000">$5000 and above</label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="w-[100%] md:w-[65%]" id="searchedJobs">
-                    <div class="flex flex-col gap-6">
-                        <div>
-                            <div class="flex justify-between">
-                                <h2 class="font-semibold text-2xl">All Jobs</h2>
-                                <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
-                            </div>
-                            <p>Showing 22 results</p>
-                        </div>
-
-                        <div class="flex flex-col gap-y-8">
-                            <div class="job-card">
-                                <div class=" flex rounded-md py-4 border border-black ">
-                                    <div class="flex gap-4 md:gap-8 w-[65%] px-3">
-                                        <div><img src="/images/Ellipse.png" alt=""></div>
     
-                                        <div class="">
-                                            <h2 class="text-2xl font-semibold">Senior Developer </h2>
-                                            <h3 class="text-md font-semibold">Foodmandu</h3>
-                                            <div class="flex gap-6 text-sm font-medium">
-                                                <p>Full time</p>
-                                                <p>Koteshor Nepal</p>
-                                            </div>
-                                        </div>
+                            <div class="flex flex-col gap-y-2">
+                                <div class="flex justify-between">
+                                    <span class="font-semibold text-2xl">Job Level</span> 
+                                    <div class="flex items-center">
+                                        <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
                                     </div>
-                                    
-                                    <div class="flex justify-between w-[35%]">
-                                        <div class="flex items-center">
-                                            <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
-                                        </div>
-        
-                                        <div>
-                                            <img src="/images/save-icon.png" alt="">
-                                        </div>
-                                    </div>
+                                </div>
     
-                                    
+                                <div>
+                                    <ul class="flex flex-col gap-y-2">
+                                        <li>
+                                            <input type="checkbox" id="entryLevel" name="entryLevel" value="entryLevel">
+                                            <label for="entryLevel">Entry Level</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="midLevel" name="midLevel" value="midLevel">
+                                            <label for="midLevel">MidLevel</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="seniorLevel" name="seniorLevel" value="seniorLevel">
+                                            <label for="seniorLevel">Senior Level</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="director" name="director" value="director">
+                                            <label for="director">Director</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="vpOrAbove" name="vpOrAbove" value="vpOrAbove">
+                                            <label for="vpOrAbove">VP or above</label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-
-                            <div class="job-card">
-                                <div class=" flex rounded-md py-4 border-2 border-black ">
-                                    <div class="flex gap-4 md:gap-8 w-[65%] px-3">
-                                        <div><img src="/images/Ellipse.png" alt=""></div>
-    
-                                        <div class="">
-                                            <h2 class="text-2xl font-semibold">Senior Developer </h2>
-                                            <h3 class="text-md font-semibold">Foodmandu</h3>
-                                            <div class="flex gap-6 text-sm font-medium">
-                                                <p>Full time</p>
-                                                <p>Koteshor Nepal</p>
-                                            </div>
-                                        </div>
+                            
+                            <div class="flex flex-col gap-y-2">
+                                <div class="flex justify-between">
+                                    <span class="font-semibold text-2xl">Salary Range</span> 
+                                    <div class="flex items-center">
+                                        <img style="width: 34px;height: 21px;" src="images/arrow-up.png" alt="arow up"> 
                                     </div>
-                                    
-                                    <div class="flex justify-between w-[35%]">
-                                        <div class="flex items-center">
-                                            <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
-                                        </div>
-        
-                                        <div>
-                                            <img src="/images/save-icon.png" alt="">
-                                        </div>
-                                    </div>
+                                </div>
     
-                                    
+                                <div>
+                                    <ul class="flex flex-col gap-y-2">
+                                        <li>
+                                            <input type="checkbox" id="salary5" name="salary5" value="salary5">
+                                            <label for="salary5">$5 - $100</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="salary100" name="salary100" value="salary100">
+                                            <label for="salary100">$100 - $1000</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="salary1000" name="salary1000" value="salary1000">
+                                            <label for="salary1000">$1000 - $5000</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" id="salary5000" name="salary5000" value="salary5000">
+                                            <label for="salary5000">$5000 and above</label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-
-                            <div class="job-card">
-                                <div class=" flex rounded-md py-4 border-2 border-black ">
-                                    <div class="flex gap-4 md:gap-8 w-[65%] px-3">
-                                        <div><img src="/images/Ellipse.png" alt=""></div>
-    
-                                        <div class="">
-                                            <h2 class="text-2xl font-semibold">Senior Developer </h2>
-                                            <h3 class="text-md font-semibold">Foodmandu</h3>
-                                            <div class="flex gap-6 text-sm font-medium">
-                                                <p>Full time</p>
-                                                <p>Koteshor Nepal</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex justify-between w-[35%]">
-                                        <div class="flex items-center">
-                                            <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
-                                        </div>
-        
-                                        <div>
-                                            <img src="/images/save-icon.png" alt="">
-                                        </div>
-                                    </div>
-    
-                                    
-                                </div>
-                            </div>
-
-                            <div class="job-card">
-                                <div class=" flex rounded-md py-4 border-2 border-black ">
-                                    <div class="flex gap-4 md:gap-8 w-[65%] px-3">
-                                        <div><img src="/images/Ellipse.png" alt=""></div>
-    
-                                        <div class="">
-                                            <h2 class="text-2xl font-semibold">Senior Developer </h2>
-                                            <h3 class="text-md font-semibold">Foodmandu</h3>
-                                            <div class="flex gap-6 text-sm font-medium">
-                                                <p>Full time</p>
-                                                <p>Koteshor Nepal</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex justify-between w-[35%]">
-                                        <div class="flex items-center">
-                                            <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
-                                        </div>
-        
-                                        <div>
-                                            <img src="/images/save-icon.png" alt="">
-                                        </div>
-                                    </div>
-    
-                                    
-                                </div>
-                            </div>
-
-                            <div class="job-card">
-                                <div class=" flex rounded-md py-4 border border-black ">
-                                    <div class="flex gap-4 md:gap-8 w-[65%] px-3">
-                                        <div><img src="/images/Ellipse.png" alt=""></div>
-    
-                                        <div class="">
-                                            <h2 class="text-2xl font-semibold">Senior Developer </h2>
-                                            <h3 class="text-md font-semibold">Foodmandu</h3>
-                                            <div class="flex gap-6 text-sm font-medium">
-                                                <p>Full time</p>
-                                                <p>Koteshor Nepal</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex justify-between w-[35%]">
-                                        <div class="flex items-center">
-                                            <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
-                                        </div>
-        
-                                        <div>
-                                            <img src="/images/save-icon.png" alt="">
-                                        </div>
-                                    </div>
-    
-                                    
-                                </div>
-                            </div>
-
-                            <div class="job-card">
-                                <div class=" flex rounded-md py-4 border border-black ">
-                                    <div class="flex gap-4 md:gap-8 w-[65%] px-3">
-                                        <div><img src="/images/Ellipse.png" alt=""></div>
-    
-                                        <div class="">
-                                            <h2 class="text-2xl font-semibold">Senior Developer </h2>
-                                            <h3 class="text-md font-semibold">Foodmandu</h3>
-                                            <div class="flex gap-6 text-sm font-medium">
-                                                <p>Full time</p>
-                                                <p>Koteshor Nepal</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="flex justify-between w-[35%]">
-                                        <div class="flex items-center">
-                                            <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
-                                        </div>
-        
-                                        <div>
-                                            <img src="/images/save-icon.png" alt="">
-                                        </div>
-                                    </div>
-    
-                                    
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
-
-                  
+                    <div class="w-[100%] md:w-[65%]" id="searchedJobs">
+                        <div class="flex flex-col gap-6">
+                            <div>
+                                <div class="flex justify-between">
+                                    <h2 class="font-semibold text-2xl">All Jobs</h2>
+                                    <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
+                                </div>
+                                <p>Showing 22 results</p>
+                            </div>
+    
+                            <div class="flex flex-col gap-y-8">
+                                <div class="job-card">
+                                    <div class=" flex rounded-md py-4 border border-black ">
+                                        <div class="flex gap-4 md:gap-8 w-[65%] px-3">
+                                            <div><img src="/images/Ellipse.png" alt=""></div>
+        
+                                            <div class="">
+                                                <h2 class="text-2xl font-semibold">Senior Developer </h2>
+                                                <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                <div class="flex gap-6 text-sm font-medium">
+                                                    <p>Full time</p>
+                                                    <p>Koteshor Nepal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-between w-[35%]">
+                                            <div class="flex items-center">
+                                                <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
+                                            </div>
+            
+                                            <div>
+                                                <img src="/images/save-icon.png" alt="">
+                                            </div>
+                                        </div>
+        
+                                        
+                                    </div>
+                                </div>
+    
+                                <div class="job-card">
+                                    <div class=" flex rounded-md py-4 border-2 border-black ">
+                                        <div class="flex gap-4 md:gap-8 w-[65%] px-3">
+                                            <div><img src="/images/Ellipse.png" alt=""></div>
+        
+                                            <div class="">
+                                                <h2 class="text-2xl font-semibold">Senior Developer </h2>
+                                                <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                <div class="flex gap-6 text-sm font-medium">
+                                                    <p>Full time</p>
+                                                    <p>Koteshor Nepal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-between w-[35%]">
+                                            <div class="flex items-center">
+                                                <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
+                                            </div>
+            
+                                            <div>
+                                                <img src="/images/save-icon.png" alt="">
+                                            </div>
+                                        </div>
+        
+                                        
+                                    </div>
+                                </div>
+    
+                                <div class="job-card">
+                                    <div class=" flex rounded-md py-4 border-2 border-black ">
+                                        <div class="flex gap-4 md:gap-8 w-[65%] px-3">
+                                            <div><img src="/images/Ellipse.png" alt=""></div>
+        
+                                            <div class="">
+                                                <h2 class="text-2xl font-semibold">Senior Developer </h2>
+                                                <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                <div class="flex gap-6 text-sm font-medium">
+                                                    <p>Full time</p>
+                                                    <p>Koteshor Nepal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-between w-[35%]">
+                                            <div class="flex items-center">
+                                                <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
+                                            </div>
+            
+                                            <div>
+                                                <img src="/images/save-icon.png" alt="">
+                                            </div>
+                                        </div>
+        
+                                        
+                                    </div>
+                                </div>
+    
+                                <div class="job-card">
+                                    <div class=" flex rounded-md py-4 border-2 border-black ">
+                                        <div class="flex gap-4 md:gap-8 w-[65%] px-3">
+                                            <div><img src="/images/Ellipse.png" alt=""></div>
+        
+                                            <div class="">
+                                                <h2 class="text-2xl font-semibold">Senior Developer </h2>
+                                                <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                <div class="flex gap-6 text-sm font-medium">
+                                                    <p>Full time</p>
+                                                    <p>Koteshor Nepal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-between w-[35%]">
+                                            <div class="flex items-center">
+                                                <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
+                                            </div>
+            
+                                            <div>
+                                                <img src="/images/save-icon.png" alt="">
+                                            </div>
+                                        </div>
+        
+                                        
+                                    </div>
+                                </div>
+    
+                                <div class="job-card">
+                                    <div class=" flex rounded-md py-4 border border-black ">
+                                        <div class="flex gap-4 md:gap-8 w-[65%] px-3">
+                                            <div><img src="/images/Ellipse.png" alt=""></div>
+        
+                                            <div class="">
+                                                <h2 class="text-2xl font-semibold">Senior Developer </h2>
+                                                <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                <div class="flex gap-6 text-sm font-medium">
+                                                    <p>Full time</p>
+                                                    <p>Koteshor Nepal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-between w-[35%]">
+                                            <div class="flex items-center">
+                                                <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
+                                            </div>
+            
+                                            <div>
+                                                <img src="/images/save-icon.png" alt="">
+                                            </div>
+                                        </div>
+        
+                                        
+                                    </div>
+                                </div>
+    
+                                <div class="job-card">
+                                    <div class=" flex rounded-md py-4 border border-black ">
+                                        <div class="flex gap-4 md:gap-8 w-[65%] px-3">
+                                            <div><img src="/images/Ellipse.png" alt=""></div>
+        
+                                            <div class="">
+                                                <h2 class="text-2xl font-semibold">Senior Developer </h2>
+                                                <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                <div class="flex gap-6 text-sm font-medium">
+                                                    <p>Full time</p>
+                                                    <p>Koteshor Nepal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flex justify-between w-[35%]">
+                                            <div class="flex items-center">
+                                                <button class="rounded-lg bg-[#10B981] text-white px-3 md:px-10 py-2">Apply Now</button>
+                                            </div>
+            
+                                            <div>
+                                                <img src="/images/save-icon.png" alt="">
+                                            </div>
+                                        </div>
+        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                      
+                    </div>
                 </div>
+                
             </div>
         </section>
 
