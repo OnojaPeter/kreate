@@ -40,10 +40,11 @@ header a {
 }
 
 /* job description page*/
-.job-card:nth-child(even) {
-    background-color: #ffffff; /* White background */
+.job-card:nth-child(odd) {
+    background-color: #60EEBF80;
 }
 
-.job-card:nth-child(odd) {
-    background-color: #60EEBF80; /* Your desired background color */
+/* Apply white background color to every even job card */
+.job-card:nth-child(even) {
+    background-color: white;
 }
