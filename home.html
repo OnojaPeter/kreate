@@ -16,7 +16,7 @@
 </head>
 <body>
     <header class="mt-4  md:mt-8  h-14 absolute z-50 w-[100%] flex justify-center">
-        <nav class="flex flex-row justify-between h-14 items-center mx-8 md:mx-16 max-page-width">
+        <nav class="flex flex-row justify-between h-14 items-center mx-4 md:mx-16 max-page-width">
             <div class="flex md:hidden w-[40%]">
                 <img src="images/Logo-Kreate.png" alt="Kreate Logo">
             </div>
@@ -37,24 +37,25 @@
     </header>
     <main>
         <section class="md:h-screen  relative flex flex-col justify-center items-center max-h-full lg:max-h-[850px]" id="landingPage">
-            <div class="mx-28 flex flex-col md:flex-row md:justify-between max-page-width px-8 md:px-12 lg:px-28">
+            <div class=" flex flex-col md:flex-row md:justify-between max-page-width px-4 md:px-12 lg:px-28">
                 <div class="w-[100%] md:w-[55%] mt-28 md:mt-36">
                     <h1 class="text-5xl sm:text-4xl md:text-5xl lg:text-8xl">Your Dream <span class="text-[#10B981]">Job Is Waiting</span></h1>
                     <p class="text-4xl md:text-5xl lg:text-6xl mt-4">5000+ Jobs</p>
     
-                    <form action="" class="flex flex-col md:flex-row gap-y-3">
+                    <form action="" class="flex flex-col md:flex-row gap-y-2">
                         <div class="w-[100%] flex flex-row items-center justify-between border-[#10B981] border-2 rounded-3xl pl-4 mt-8 md:mt-12">
+                            <!-- added class for img and the pl for input -->
                             <label for="title">
-                                <img src="images/search-icon.png" alt="">
+                                <img class="mr-2 md:mr-4" src="images/search-icon.png" alt="">
                             </label>
-                            <input class="outline-none bg-transparent" type="text" name="title" placeholder="Enter job title, keyword">
+                            <input class="pl-2 outline-none bg-transparent" type="text" name="title" placeholder="Enter job title, keyword">
         
                             <span class="h-14 w-[2px] bg-[#10B981]"></span>
         
                             <label for="search-location">
-                                <img src="images/location-icon.png" alt="">
+                                <img class="mr-2 md:mr-4" src="images/location-icon.png" alt="">
                             </label>
-                            <input class="outline-none bg-transparent" type="text" name="search-location" placeholder="Search Location">
+                            <input class="pl-2 outline-none bg-transparent" type="text" name="search-location" placeholder="Input Location">
         
                             <button class="hidden md:block text-lg font-medium rounded-3xl bg-[#10B981] text-white h-14 px-2 md:px-6 border-2" type="submit">Search</button>
                             
@@ -74,12 +75,12 @@
         
         <section class="md:pb-16 colored-section  flex flex-col items-center max-h-full lg:max-h-[850px]" id="categories">
             <div class=" max-page-width flex flex-col justify-between w-full h-full md:h-screen relative">
-                <div class="flex flex-row justify-between px-10 md:px-12 lg:px-28 py-6 md:p-10 w-full">
+                <div class="flex flex-row justify-between px-4 md:px-12 lg:px-28 py-6 md:p-10 w-full">
                     <h2 class="text-lg md:text-2xl font-semibold">Explore by <span class="text-[#10B981]">categories</span></h2>
                     <h3 class="text-sm md:text-base flex flex-row items-center gap-2 font-semibold">Show all jobs <span><img src="images/Arrow.png" alt="right arraow icon"></span></h3>
                 </div>
     
-                <div class="flex flex-wrap max-w-full justify-between md:justify-start pb-10 mx-10 md:mx-12 lg:mx-36 gap-7 md:gap-7 lg:gap-6">
+                <div class="flex flex-wrap max-w-full justify-between md:justify-start pb-10 mx-4 md:mx-12 lg:mx-36 gap-7 md:gap-7 lg:gap-6">
                     <div class="bg-white px-4 py-4 md:px-6 md:py-6 rounded-lg w-[calc(50%-20px)] md:w-[calc(33.33%-20px)] lg:w-[calc(25%-20px)]">
                         <img src="images/design-icon.png" alt="">
                         <h3 class="my-2">Design</h3>
