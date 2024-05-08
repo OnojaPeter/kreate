@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/64af63ddf7.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="styles.css">
     
@@ -16,7 +18,8 @@
 </head>
 <body>
     <header class="mt-4  md:mt-8  h-14 absolute z-50 w-[100%] flex justify-center">
-        <nav class="flex flex-row justify-between h-14 items-center mx-4 sm:mx-12 md:mx-2 lg:mx-16 max-page-width">
+        <nav  class="flex flex-row justify-between h-14 items-center mx-4 sm:mx-12 md:mx-2 lg:mx-16 max-page-width">
+            <!-- Desktop view -->
             <div class="flex md:hidden w-[40%]">
                 <img src="images/Logo-Kreate.png" alt="Kreate Logo">
             </div>
@@ -32,7 +35,25 @@
                 <a href="" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-1 rounded-md">Login</a>
                 <a class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-1 rounded-md text-white" href="">Sign Up</a>
             </div>
-            <span class="md:hidden">X</span>
+
+            <!-- Mobile view -->
+            <div id="hamMenu" class="hidden md:hidden absolute top-14 right-0 bg-white p-4">
+                <!-- Close button -->
+                <button id="closeIcon" class="absolute top-0 right-0 mt-8 mr-9 hidden"><i class="fa-solid fa-xmark"></i></button>
+                <!-- Menu items -->
+                <div class="flex flex-col  mt-16">
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Home</a>
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Find jobs</a>
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Post jobs</a>
+                    <a href="" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
+                    <a href="" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white ">Sign Up</a>
+                </div>
+            </div>
+            
+            
+            <button id="hamburger" class="md:hidden"><i class="fa-solid fa-bars"></i></button> 
+            
+            <!-- <button id="closeIcon" class="hidden md:hidden z-50">☰ ×</button> -->
         </nav>
     </header>
     <main>
@@ -436,5 +457,6 @@
         </section>
     </main>
     
+    <script src="script.js"></script>
 </body>
 </html>
