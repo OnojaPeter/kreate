@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/64af63ddf7.js" crossorigin="anonymous"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .box {
+            padding: 40px 0;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .box.active {
+            border-color: #10B981;
+        }
+
+        #submitButton {
+            margin-top: 20px;
+            width: 100%;
+            padding: 5px 0;
+            /* padding: 10px 20px; */
+            background-color: #10B981;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        #submitButton:active {
+            background-color: #10B981;
+        }
+
+        #submitButton:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+            /* padding: 5px 15px; */
+            color: white;
+        }
+        /* Hide the default radio input */
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+
+            /* custom styles for the radio */
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        /* Apply custom styles when radio is checked */
+        input[type="radio"]:checked {
+            border: 2px solid #10B981;
+            background-color: #10B981; 
+        }
+        
+    </style>
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>Kreate</title>
+</head>
+<body>
+    <header class="mt-4  md:mt-8  h-14 absolute z-50 w-[100%] flex justify-center">
+        <nav  class="flex flex-row justify-between h-14 items-center mx-4 sm:mx-12 md:mx-2 lg:mx-16 max-page-width">
+            <!-- Desktop view -->
+            <div class="flex md:hidden w-[40%]">
+                <img src="images/Logo-Kreate.png" alt="Kreate Logo">
+            </div>
+            <div class="hidden md:flex">
+                <img src="images/Logo-Kreate.png" alt="Kreate Logo">
+            </div>
+            <div class="gap-4 hidden md:flex md:gap-8 lg:gap-14">
+                <a href="" class="hover:underline hover:text-[#10B981]">Home</a>
+                <a href="" class="hover:underline hover:text-[#10B981]">Find jobs</a>
+                <a href="" class="hover:underline hover:text-[#10B981]">Post jobs</a>
+            </div>
+            <div class="gap-4 hidden md:flex md:gap-8 lg:gap-14 items-center">
+                <a href="" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-1 rounded-md">Login</a>
+                <a class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-1 rounded-md text-white" href="">Sign Up</a>
+            </div>
+
+            <!-- Mobile view -->
+            <div id="hamMenu" class="hidden md:hidden absolute top-14 right-0 bg-white p-4">
+                <!-- Close button -->
+                <button id="closeIcon" class="absolute top-0 right-0 mt-8 mr-4 sm:mr-12 hidden"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                <!-- Menu items -->
+                <div class="flex flex-col  mt-16">
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Home</a>
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Find jobs</a>
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Post jobs</a>
+                    <a href="" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
+                    <a href="" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white ">Sign Up</a>
+                </div>
+            </div>
+            
+            <!-- hamburger button -->
+            <button id="hamburger" class="md:hidden"><i class="fa-solid fa-bars fa-xl"></i></button> 
+            
+            <!-- <button id="closeIcon" class="hidden md:hidden z-50">☰ ×</button> -->
+        </nav>
+    </header>
+    <main>
+        <section >
+            <div class="pt-28 sm:pt-36 mx-4 flex flex-col gap-6 mb-14 md:mb-24 lg:mb-24">                
+                <h1 class="text-center text-3xl font-medium">Join as a client or freelancer</h1>
+                
+                <div class="container w-full">
+                    <div class="flex flex-col md:flex-row w-full gap-6">
+                        <div class="box border-2 w-[100%]" id="clientBox">
+                            <label class="px-10 text-2xl font-medium flex flex-col gap-4">
+                                <div class="flex justify-between">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                    <input class="border-2 " type="radio" name="role" value="client">
+                                </div>
+                                 
+                                I'm a client, hiring for a project
+                            </label>
+                        </div>
+                        <div class="box border-2 w-[100%]" id="freelancerBox">
+                            <label class="px-10 text-2xl font-medium flex flex-col gap-4">
+                                <div class="flex justify-between">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                    <input class="border-2" type="radio" name="role" value="freelancer">
+                                </div> 
+                                I'm a freelancer, looking for work
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button id="submitButton" disabled>Select Role</button>
+                </div>
+
+                
+                
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('click', () => {
+                document.querySelectorAll('.box').forEach(b => b.classList.remove('active'));
+                box.classList.add('active');
+                const correspondingRadio = box.querySelector('input[type="radio"]');
+                correspondingRadio.checked = true;
+                document.getElementById('submitButton').disabled = false;
+                document.getElementById('submitButton').textContent = box.id === 'clientBox' ? 'Join as a client' : 'Apply as a freelancer';
+            });
+        });
+
+        
+
+        document.getElementById('submitButton').addEventListener('click', () => {
+            const selectedRole = document.querySelector('input[name="role"]:checked');
+            if (selectedRole) {
+                const role = selectedRole.value;
+                const signupLink = role === 'client' ? 'client-signup.html' : 'talent-signup.html';
+                window.location.href = signupLink;
+            }
+        });
+
+    </script>
+</body>
+</html>
