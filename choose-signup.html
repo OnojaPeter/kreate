@@ -24,6 +24,9 @@
             cursor: pointer;
             border-radius: 10px;
         }
+        .box label{
+            cursor: pointer;
+        }
 
         .box.active {
             border-color: #10B981;
@@ -31,9 +34,7 @@
 
         #submitButton {
             margin-top: 20px;
-            width: 100%;
             padding: 5px 0;
-            /* padding: 10px 20px; */
             background-color: #10B981;
             color: white;
             border: none;
@@ -85,7 +86,7 @@
                 <img src="images/Logo-Kreate.png" alt="Kreate Logo">
             </div>
             <div class="gap-4 hidden md:flex md:gap-8 lg:gap-14">
-                <a href="" class="hover:underline hover:text-[#10B981]">Home</a>
+                <a href="home.html" class="hover:underline hover:text-[#10B981]">Home</a>
                 <a href="" class="hover:underline hover:text-[#10B981]">Find jobs</a>
                 <a href="" class="hover:underline hover:text-[#10B981]">Post jobs</a>
             </div>
@@ -100,7 +101,7 @@
                 <button id="closeIcon" class="absolute top-0 right-0 mt-8 mr-4 sm:mr-12 hidden"><i class="fa-solid fa-xmark fa-xl"></i></button>
                 <!-- Menu items -->
                 <div class="flex flex-col  mt-16">
-                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Home</a>
+                    <a href="home.html" class="hover:underline hover:text-[#10B981] py-4 border-b">Home</a>
                     <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Find jobs</a>
                     <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Post jobs</a>
                     <a href="" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
@@ -116,13 +117,13 @@
     </header>
     <main>
         <section >
-            <div class="pt-28 sm:pt-36 mx-4 flex flex-col gap-6 mb-14 md:mb-24 lg:mb-24">                
+            <div class="pt-28 sm:pt-36 sm:px-20 md:px-20 lg:px-40 mx-4 sm:mx-12 md:mx-16 flex flex-col gap-6 mb-14 md:mb-24 lg:mb-24">                
                 <h1 class="text-center text-3xl font-medium">Join as a client or freelancer</h1>
                 
-                <div class="container w-full">
+                <div class="container w-full xl:px-40">
                     <div class="flex flex-col md:flex-row w-full gap-6">
                         <div class="box border-2 w-[100%]" id="clientBox">
-                            <label class="px-10 text-2xl font-medium flex flex-col gap-4">
+                            <label class="label px-10 text-2xl font-medium flex flex-col gap-4">
                                 <div class="flex justify-between">
                                     <i class="fa-solid fa-briefcase"></i>
                                     <input class="border-2 " type="radio" name="role" value="client">
@@ -142,7 +143,7 @@
                         </div>
                     </div>
                     
-                    <button id="submitButton" disabled>Select Role</button>
+                    <button id="submitButton" class="w-[100%] md:w-[40%]" disabled>Select Role</button>
                 </div>
 
                 
