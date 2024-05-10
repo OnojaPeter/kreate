@@ -44,20 +44,24 @@
                     <div class="flex flex-col gap-2 md:gap-6 md:justify-between">
                         <div class="w-[100%] flex flex-col gap-2">
                             <label class="font-medium" for="email"> Email</label>
-                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="email" name="email" id="email" placeholder="Enter your email">
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="email" name="email" id="email" placeholder="Enter your email" required>
                         </div>
 
                         <div class="w-[100%] flex flex-col gap-2">
                             <label class="font-medium" for="password">Password</label>
-                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="password" name="password" id="password" placeholder="Password">
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="password" name="password" id="password" placeholder="Password" required>
                         </div>
                     </div>
 
                     <button class="bg-[#10B981] text-center text-white font-medium w-[100%] py-2 rounded-md mt-2 md:mt-0" type="submit">Login</button>
+                    <div class="flex justify-center mt- gap-2">
+                        <h3>forgot your password?</h3>
+                        <a href="" class="underline text-[#10B981]">Click here</a>
+                    </div>
                     
                     <div class="flex justify-center mt-8 gap-2">
                         <h3>Don't have an account?</h3>
-                        <a href="" class="underline text-[#10B981]">Sign Up</a>
+                        <a href="choose-signup.html" class="underline text-[#10B981]">Sign Up</a>
                     </div>
                 </form>
             </div>
