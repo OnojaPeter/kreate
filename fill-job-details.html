@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/64af63ddf7.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>Kreate</title>
+</head>
+<body>
+    <header class="mt-4  md:mt-8  h-14 absolute z-50 w-[100%] flex justify-center">
+        <nav  class="flex flex-row justify-between h-14 items-center mx-4 sm:mx-12 md:mx-2 lg:mx-16 max-page-width">
+            <!-- Desktop view -->
+            <div class="flex md:hidden w-[40%]">
+                <img src="images/Logo-Kreate.png" alt="Kreate Logo">
+            </div>
+            <a class="hidden md:flex" href="/">
+                <img src="images/Logo-Kreate.png" alt="Kreate Logo">
+            </a>
+            <div class="gap-4 hidden md:flex md:gap-8 lg:gap-14">
+                <a href="home.html" class="hover:underline hover:text-[#10B981]">Home</a>
+                <a href="" class="hover:underline hover:text-[#10B981]">Find jobs</a>
+                <a href="" class="hover:underline hover:text-[#10B981]">Post jobs</a>
+            </div>
+            <div class="gap-4 hidden md:flex md:gap-8 lg:gap-14 items-center">
+                <a href="login.html" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-1 rounded-md">Login</a>
+                <a class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-1 rounded-md text-white" href="choose-signup.html">Sign Up</a>
+            </div>
+
+            <!-- Mobile view -->
+            <div id="hamMenu" class="hidden md:hidden absolute top-14 right-0 bg-white p-4">
+                <!-- Close button -->
+                <button id="closeIcon" class="absolute top-0 right-0 mt-8 mr-4 sm:mr-12 hidden"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                <!-- Menu items -->
+                <div class="flex flex-col  mt-16">
+                    <a href="home.html" class="hover:underline hover:text-[#10B981] py-4 border-b">Home</a>
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Find jobs</a>
+                    <a href="" class="hover:underline hover:text-[#10B981] py-4 border-b">Post jobs</a>
+                    <a href="login.html" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
+                    <a href="choose-signup.html" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white ">Sign Up</a>
+                </div>
+            </div>
+            
+            <!-- hamburger button -->
+            <button id="hamburger" class="md:hidden"><i class="fa-solid fa-bars fa-xl"></i></button> 
+            
+            <!-- <button id="closeIcon" class="hidden md:hidden z-50">☰ ×</button> -->
+        </nav>
+    </header>
+    <main>
+        <section class="flex justify-center ">
+            <div class="max-page-width px-4 md:px-0 sm:w-[80%] md:w-[70%] lg:w-[70%] pt-28 sm:pt-36 mb-14 md:mb-24 lg:mb-24">
+                <form action="" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-6 rounded-md">
+                    <div class="flex flex-col gap-2 md:gap-6 md:justify-between">
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="companyName">Name of company</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="text" name="companyName" id="companyName" placeholder="Enter company name" required>
+                        </div>
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="aboutCompany">About company:</label>
+                            <textarea class="py-3 px-6 border rounded-md w-full h-44 focus:outline-none focus:border-[#10B981]" name="aboutCompany" id="aboutCompany" placeholder="Type about company here..."></textarea> 
+                        </div>
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="companyLocation">Company location</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="text" name="companyLocation" id="companyLocation" placeholder="Where is the company located">
+                        </div>
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="companyLogo">Upload company logo (optional)</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="file" name="companyLogo" id="companyLogo" placeholder="">
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="jobTitle">Job title:</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="text" name="jobTitle" id="jobTitle" placeholder="Job title" required>
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="jobDescription">Job description:</label>
+                            <textarea class="py-3 px-6 border rounded-md w-full h-44 focus:outline-none focus:border-[#10B981]" name="jobDescription" id="jobDescription" placeholder="Type job description here..."></textarea> 
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="jobReq">Job requirement</label>
+                            <textarea class="py-3 px-6 border rounded-md w-full h-44 focus:outline-none focus:border-[#10B981]" name="jobReq" id="jobReq" placeholder="Type job requirements here..."></textarea> 
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="jobCategory">Job category:</label>
+                            <select name="jobCategory" id="jobCategory" class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6">
+                                <option value="">Choose job category</option>
+                                <option value="design">Design</option>
+                                <option value="sales">Sales</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="finance">Finance</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="technology">Technology</option>
+                                <option value="business">Business</option>
+                                <option value="human resource">Human Resource</option>
+                            </select>
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="jobType">Job type:</label>
+                            <select name="jobType" id="jobType" class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6">
+                                <option value="">Choose job type</option>
+                                <option value="full time">Full time</option>
+                                <option value="part time">Part time</option>
+                                <option value="remote">Remote</option>
+                                <option value="internship">Internship</option>
+                                <option value="contract">Contract</option>
+                            </select>
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="jobLevel">Job level:</label>
+                            <select name="jobLevel" id="jobLevel" class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6">
+                                <option value="">Choose job level</option>
+                                <option value="entrylLevel">Entry Level</option>
+                                <option value="mid level">Mid level</option>
+                                <option value="senior level">Senior Level</option>
+                                <option value="director">Director</option>
+                                <option value="vp or above">VP or above</option>
+                            </select>
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="salary">Salary:</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="number" name="salary" id="salary" placeholder="salary in $">
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="vacancy">Number of vacancy:</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="number" name="vacancy" id="vacancy" placeholder="Number of vacancy">
+                        </div>
+
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for="applyBefore">Apply before</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="date" name="applyBefore" id="applyBefore" placeholder="">
+                        </div>
+
+                        <!-- <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for=""></label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="text" name="" id="" placeholder="">
+                        </div>
+                        <div class="w-[100%] flex flex-col gap-2">
+                            <label class="font-medium" for=""></label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="text" name="" id="" placeholder="">
+                        </div> -->
+
+                        
+                    </div>
+
+                    <button class="bg-[#10B981] text-center text-white font-medium w-[100%] py-2 rounded-md mt-2 md:mt-0" type="submit">Upload job</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

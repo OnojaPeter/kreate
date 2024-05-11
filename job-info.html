@@ -10,6 +10,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <style>
+        .notification {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
     <link rel="stylesheet" href="styles.css">
 
     <title>Kreate</title>
@@ -94,13 +108,7 @@
                                     <div>
                                         <h1 class="text-lg md:text-3xl font-semibold">Requirements:</h1>
                                         <div class="flex flex-col gap-1">
-                                            <div class="flex gap-3"><h3 class="font-semibold">1.</h3> <h3>1/2 years experience</h3></div>
-                                            <div class="flex gap-3"><h3 class="font-medium">2.</h3> <h3>Academic: Bachelor/High School</h3></div>
-                                            <div class="flex gap-3"><h3 class="font-medium">3.</h3> <h3>Expert in HTML, CSS JS</h3></div>
-                                            <div class="flex gap-3"><h3 class="font-medium">4.</h3> <h3>Experience with RDBMS</h3></div> 
-                                            <div class="flex gap-3"><h3 class="font-medium">5.</h3> <h3>Integration of payment system</h3></div>  
-                                            <div class="flex gap-3"><h3 class="font-medium">6.</h3> <h3>Should be able to work on bug fixing and maintain code quality</h3></div>
-                                            <div class="flex gap-3"><h3 class="font-medium">7.</h3> <h3>Good knowledge of modern UI/UX standards</h3></div>  
+                                            <p class="font-semibold"> 1/2 years experience, Expert in HTML, CSS JS. Should be able to work on bug fixing and maintain code quality</p>
                                         </div>
                                     </div>
                                     
@@ -156,7 +164,7 @@
                             <h2 class="text-2xl font-medium">Copy job URL link</h2>
                             <div class="w-full h-10 border-2 border-[#10B981] flex flex-row items-center">
                                 <div class="pl-2 w-[80%]">https://www.kreate.com/job-apply-325...</div>
-                                <div class="w-[20%] bg-[#10B981] h-full flex items-center justify-center text-white"> Copy link</div>
+                                <button id="copyButton" class="w-[20%] bg-[#10B981] h-full flex items-center justify-center text-white"> Copy link</button>
                             </div>
                         </div>
 
@@ -192,6 +200,27 @@
                 </div>
             </div>
         </section>
+
+        <div id="notification" style="display: none;" class="notification">Link copied to clipboard!</div>
     </main>
+
+    <script>
+        document.getElementById('copyButton').addEventListener('click', () => {
+            const url = window.location.href; // Get the current page URL
+            navigator.clipboard.writeText(url).then(() => {
+                // console.log('Link copied to clipboard: ' + url);
+                // Show notification
+                document.getElementById('notification').style.display = 'block';
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('notification').style.display = 'none';
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy link: ', err);
+                alert('Failed to copy link.'); // Optionally, show an error message to the user
+            });
+        });
+
+    </script>
 </body>
 </html>
