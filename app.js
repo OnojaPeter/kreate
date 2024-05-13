@@ -8,6 +8,8 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use('/public', express.static('public'));
+app.use('css', express.static('public/css', { 'extensions': ['css']}));
 
 app.set('view engine', 'ejs');
 
