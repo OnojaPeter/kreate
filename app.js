@@ -12,16 +12,17 @@ app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
 // mongodb connetion
-// const uri = 'mongodb://127.0.0.1:27017/drip';  for localhost
-const uri = process.env.MONGODB_URI;
 
-mongoose.connect(uri);
-const db = mongoose.connection;
-// Event listeners for connection status
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB successfully!');
-});
+// const uri = 'mongodb://127.0.0.1:27017/drip';  for localhost
+// const uri = process.env.MONGODB_URI;
+
+// mongoose.connect(uri);
+// const db = mongoose.connection;
+// // Event listeners for connection status
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+// db.once('open', () => {
+//   console.log('Connected to MongoDB successfully!');
+// });
 
 
 
@@ -29,6 +30,12 @@ db.once('open', () => {
 // example of route: const homeRoute = require("./routes/homeRoute")
 
 // example of app.use: and connect to route app.use('/', homeRoute);
+
+// ROUTES
+const homeRoute = require("./routes/homeRoute")
+
+// APP.USE
+app.use('/', homeRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
