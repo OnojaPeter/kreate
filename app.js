@@ -28,16 +28,33 @@ app.set('view engine', 'ejs');
 
 
 
+// ROUTES 
+const homeRoute = require("./routes/homeRoute");
+const chooseSignupRoute = require("./routes/chooseSignupRoute");
+const clientSignupRoute = require("./routes/clientSignupRoute");
+const talentSignupRoute = require("./routes/talentSignupRoute");
+const provideJobDetailsRoute = require("./routes/provideJobDetailsRoute");
+const findJobRoute = require("./routes/findJobRoute");
+const jobApplicationRoute = require("./routes/jobApplicationRoute");
+const jobInfoRoute = require("./routes/jobInfoRoute");
+const loginRoute = require("./routes/loginRoute");
+const newPasswordRoute = require("./routes/newPasswordRoute");
+const resetPasswordRoute = require("./routes/resetPasswordRoute");
+// const Route = require("./routes/Route");
 
-// example of route: const homeRoute = require("./routes/homeRoute")
-
-// example of app.use: and connect to route app.use('/', homeRoute);
-
-// ROUTES
-const homeRoute = require("./routes/homeRoute")
-
-// APP.USE
+// APP.USE 
 app.use('/', homeRoute);
+app.use("/signup", chooseSignupRoute);
+app.use("/signup/client", clientSignupRoute);
+app.use("/signup/talent", talentSignupRoute);
+app.use("/provide-job-details", provideJobDetailsRoute);
+app.use("/find-job", findJobRoute);
+app.use("/job-application", jobApplicationRoute);
+app.use("/job-info", jobInfoRoute);
+app.use("/login", loginRoute);
+app.use("/new-password", newPasswordRoute);
+app.use("/reset-password", resetPasswordRoute);
+// app.use("/", Route);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

@@ -1,44 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include ('partials/header') -%>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="../public/css/styles.css">
-    
-    <title>Kreate</title>
-</head>
-<body>
-    <header class="mt-4  md:mt-8  h-14 absolute z-50 w-[100%] flex justify-center">
-        <nav class="flex flex-row justify-between h-14 items-center mx-4 sm:mx-12 md:mx-16 max-page-width">
-            <div class="flex md:hidden w-[40%]">
-                <img src="/public/images/Logo-Kreate.png" alt="Kreate Logo">
-            </div>
-            <div class="hidden md:flex">
-                <img src="/public/images/Logo-Kreate.png" alt="Kreate Logo">
-            </div>
-            <div class="gap-4 hidden md:flex md:gap-14">
-                <a href="">Home</a>
-                <a href="">Find jobs</a>
-                <a href="">Post jobs</a>
-            </div>
-            <div class="gap-4 hidden md:flex md:gap-14 items-center">
-                <a href="">Login</a>
-                <a class="bg-[#10B981] px-4 py-1 rounded-md text-white" href="">Sign Up</a>
-            </div>
-            <span class="md:hidden">X</span>
-        </nav>
-    </header>
     <main>
         <section class="flex justify-center ">
             <div class="max-page-width flex flex-col gap-3 md:gap-6 px-4 md:px-0 sm:w-[80%] md:w-[70%] lg:w-[40%] mt-28 sm:mt-36 mb-14 md:mb-24 lg:mb-24">
-                <h1 class="text-3xl md:text-4xl font-medium text-center px-4 md:px-0">Sign up to hire talent</h1>
+                <h1 class="text-3xl md:text-4xl font-medium text-center px-4 md:px-0">Sign up to find work you love</h1>
 
                 <form action="" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-6 rounded-md">
                     <div class="flex flex-row gap-2 md:gap-0 justify-between">
@@ -55,8 +20,8 @@
 
                     <div class="flex flex-col gap-2 md:gap-6 md:justify-between">
                         <div class="w-[100%] flex flex-col gap-2">
-                            <label class="font-medium" for="email">Work email address</label>
-                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="email" name="email" id="email" placeholder="Enter your work email address">
+                            <label class="font-medium" for="email"> Email</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="email" name="email" id="email" placeholder="Enter your email">
                         </div>
 
                         <div class="w-[100%] flex flex-col gap-2">
