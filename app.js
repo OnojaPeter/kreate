@@ -14,17 +14,26 @@ app.use('css', express.static('public/css', { 'extensions': ['css']}));
 app.set('view engine', 'ejs');
 
 // mongodb connetion
-
-// const uri = 'mongodb://127.0.0.1:27017/drip';  for localhost
+const Job = require('./models/jobs'); //using this to add the dummy work info
+const uri = 'mongodb://127.0.0.1:27017/drip';
 // const uri = process.env.MONGODB_URI;
 
-// mongoose.connect(uri);
-// const db = mongoose.connection;
-// // Event listeners for connection status
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-// db.once('open', () => {
+mongoose.connect(uri);
+const db = mongoose.connection;
+// Event listeners for connection status
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', async() => {
+    if (await Job.countDocuments().exec() > 0) return
+
+    Promise.all([
+        Job.create({name:'developer', location: 'remote'}),
+        Job.create({name:'designer', location: 'world'}),
+        Job.create({name:'developer', location: 'world'}),
+        Job.create({name:'frontend', location: 'remote'}),
+        Job.create({name:'backend', location: 'remote'}),
+    ]).then(() => console.log('added jobs'))
 //   console.log('Connected to MongoDB successfully!');
-// });
+});
 
 
 
