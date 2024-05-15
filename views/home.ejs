@@ -151,23 +151,21 @@
                                             </div>
                                             
                                             <div class="capitalize">
-                                                <h3 class="font-normal text-lg">Digital  hahah</h3>
-                                                <h4><%= job.location %></h4>
+                                                <h3 class="font-normal text-lg"><%= job.companyName %></h3>
+                                                <h4><%= job.companyLocation %></h4>
                                             </div>
                                         </div>
                                         
                                         <div class="flex flex-col gap-y-3 px-3 mb-8">
-                                            <h3 class="font-normal capitalize text-2xl"><%= job.name %></h3>
-                                            <h4 class="capitalize">Fulltime</h4>
+                                            <h3 class="font-normal capitalize text-2xl"><%= job.jobTitle %></h3>
+                                            <h4 class="capitalize"><%= job.jobType %></h4>
                                             <p class="text-[#585858]">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat 
-                                                nunc ac a magna at elementum. Cras arcu varius in aliquam habitant 
-                                                fermentum. Mi sit lorem mollis vitae quis curabitur vestibulum.
+                                                <%= job.jobDescription %></h4>
                                             </p>
                                         </div>
                                         
                                         <div class="flex flex-row items-center justify-between px-3 mb-8">
-                                            <h3 class="text-base">$5000</h3>
+                                            <h3 class="text-base">$<%= job.salary %></h4></h3>
                                             <a href="job-application">
                                                 <h3 class="text-[#10B981] hover:text-white hover:bg-[#10B981] hover:px-2 hover:rounded-md text-xl whitespace-nowrap">Apply Now</h3>
                                             </a>

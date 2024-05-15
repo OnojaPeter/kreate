@@ -256,12 +256,12 @@
                                                     <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
                                                         <div><img src="/public/images/Ellipse.png" alt=""></div>
                     
-                                                        <div class="">
-                                                            <h2 class="text-lg md:text-2xl font-semibold"><%= job.name %> </h2>
-                                                            <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                        <div class="capitalize">
+                                                            <h2 class="text-lg md:text-2xl font-semibold"><%= job.jobTitle %> </h2>
+                                                            <h3 class="text-md font-semibold"><%= job.companyName %></h3>
                                                             <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                                <p>Full time</p>
-                                                                <p><%= job.location %></p>
+                                                                <p><%= job.jobType%></p>
+                                                                <p><%= job.companyLocation %></p>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -16,19 +16,21 @@ async function searchJob (req, res) {
         if (name && location) {
             // Search by both name and location
             query = {
-                name: { $regex: '^' + name + '$', $options: 'i' },
-                location: { $regex: '^' + location + '$', $options: 'i' }
+                jobTitle: { $regex: name, $options: 'i' },
+                companyLocation: { $regex: location, $options: 'i' }
             };
         } else if (name) {
             // Search only by name
-            query = { name: { $regex: '^' + name + '$', $options: 'i' } };
+            query = { jobTitle: { $regex: name, $options: 'i' } };
         } else if (location) {
             // Search only by location
-            query = { location: { $regex: '^' + location + '$', $options: 'i' } };
+            query = { companyLocation: { $regex: location, $options: 'i' } };
         }
 
+        // console.log('query:',query);
         // Execute the query to find matching jobs
         const findJobs = await Job.find(query);
+        // console.log('job found:',findJobs);
         
           
         // console.log(findJobs)
@@ -38,6 +40,51 @@ async function searchJob (req, res) {
     }
 }
 
+async function postJob (req, res) {
+    try {
+        const {
+            companyName,
+            aboutCompany,
+            companyLocation,
+            companyLogo,
+            jobTitle,
+            jobDescription,
+            jobRequirement,
+            jobCategory,
+            jobType,
+            jobLevel,
+            salary,
+            vacancy,
+            applyBefore,
+        } = req.body
+
+        const newJob = new Job({
+            companyName,
+            aboutCompany,
+            companyLocation,
+            companyLogo,
+            jobTitle,
+            jobDescription,
+            jobRequirement,
+            jobCategory,
+            jobType,
+            jobLevel,
+            salary,
+            vacancy,
+            applyBefore,
+        });
+
+        // Save the new job to the database
+        const savedJob = await newJob.save();
+        console.log("job saved:", savedJob);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+}
+
+
 module.exports =  {
     searchJob,
+    postJob,
 };
