@@ -56,21 +56,21 @@
                     <div class="mx-4 sm:mx-12 md:mx-16">
                         <h1 class="text-center text-4xl sm:text-5xl md:text-6xl font-semibold ">Discover more than <br class="block sm:hidden"> <span class="text-[#10B981]">5000+ jobs</span></h1>
                         
-                        <form action="" class="w-[100%] flex justify-center">
+                        <form action="/search-job" method="post" class="w-[100%] flex justify-center">
                             <div class="flex flex-col sm:flex-row gap-y-2">
                                 <div class="flex flex-row items-center gap-2 md:gap-6 mt-10 justify-center">
                                     <div class="flex border-black border-2 rounded-lg items-center px-2 sm:px-8 h-[58px] gap-2 sm:gap-4">
                                         <label for="title">
                                             <img src="/public/images/search-icon.png" alt="">
                                         </label>
-                                        <input class="w-[80%] outline-none bg-transparent" type="text" name="search-title" placeholder="Enter job title, keyword">
+                                        <input class="w-[80%] outline-none bg-transparent" type="text" name="searchTitle" placeholder="Enter job title, keyword" value="<%= searchTitle || '' %>">
                                     </div>
                                     
                                     <div class="flex border-black border-2 rounded-lg items-center px-2 sm:px-8 h-[58px] gap-2 sm:gap-4">
                                         <label for="search-location">
                                             <img src="/public/images/location-icon.png" alt="">
                                         </label>
-                                        <input class="w-[80%] outline-none bg-transparent " type="text" name="search-location" placeholder="Location, country, city...">
+                                        <input class="w-[80%] outline-none bg-transparent " type="text" name="searchLocation" placeholder="Location, country, city..." value="<%= searchLocation || '' %>" >
                                     </div>
                                                 
                                     <button class="hidden sm:block rounded-lg bg-[#10B981] text-white px-12 h-[58px]" type="submit">Search</button>
@@ -236,15 +236,54 @@
                     </div>
                     <div class="w-[100%] mt-5 md:mt-0 md:w-[65%]" id="searchedJobs">
                         <div class="flex flex-col gap-6">
+                            <% if (jobs && jobs.length > 0) { %>
+
                             <div>
                                 <div class="flex justify-between">
                                     <h2 class="font-semibold text-2xl">All Jobs</h2>
                                     <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
                                 </div>
-                                <p>Showing 22 results</p>
+                                <p>Showing <%= jobs.length %> results</p>
                             </div>
     
                             <div class="flex flex-col gap-y-8">
+                                
+                                   
+                                
+                                        <% jobs.forEach(job => { %>
+                                            <div class="job-card">
+                                                <div class=" flex rounded-md py-4 border border-black ">
+                                                    <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
+                                                        <div><img src="/public/images/Ellipse.png" alt=""></div>
+                    
+                                                        <div class="">
+                                                            <h2 class="text-lg md:text-2xl font-semibold"><%= job.name %> </h2>
+                                                            <h3 class="text-md font-semibold">Foodmandu</h3>
+                                                            <div class="flex gap-2 md:gap-6 text-sm font-medium">
+                                                                <p>Full time</p>
+                                                                <p><%= job.location %></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="flex justify-between w-[35%] md:w-[35%]">
+                                                        <div class="flex items-center">
+                                                            <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
+                                                        </div>
+                        
+                                                        <div class="h-10 w-10">
+                                                            <img src="/public/images/save-icon.png" alt="">
+                                                        </div>
+                                                    </div>
+                    
+                                                    
+                                                </div>
+                                            </div>
+                                        <% }); %>
+                                    
+                                <% } else { %>
+                                    <p>No jobs found.</p>
+                                <% } %>
                                 <div class="job-card">
                                     <div class=" flex rounded-md py-4 border border-black ">
                                         <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
@@ -686,5 +725,27 @@
             <div class="pb-24"></div>
         </section>       
     </main>
+
+    <script>
+        // your-script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Get search terms from URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams);
+    const searchTitle = urlParams.get('searchTitle');
+    const searchLocation = urlParams.get('searchLocation');
+
+    // Populate search inputs with search terms
+    const searchTitleInput = document.getElementById('searchTitle');
+    const searchLocationInput = document.getElementById('searchLocation');
+    if (searchTitle) {
+        searchTitleInput.value = searchTitle;
+    }
+    if (searchLocation) {
+        searchLocationInput.value = searchLocation;
+    }
+});
+
+    </script>
 </body>
 </html>

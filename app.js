@@ -27,6 +27,7 @@ db.once('open', async() => {
 
     Promise.all([
         Job.create({name:'developer', location: 'remote'}),
+        Job.create({name:'developer', location: 'remote'}),
         Job.create({name:'designer', location: 'world'}),
         Job.create({name:'developer', location: 'world'}),
         Job.create({name:'frontend', location: 'remote'}),
@@ -49,6 +50,7 @@ const jobInfoRoute = require("./routes/jobInfoRoute");
 const loginRoute = require("./routes/loginRoute");
 const newPasswordRoute = require("./routes/newPasswordRoute");
 const resetPasswordRoute = require("./routes/resetPasswordRoute");
+const formsRoute = require("./routes/formsRoute");
 // const Route = require("./routes/Route");
 
 // APP.USE 
@@ -63,6 +65,7 @@ app.use("/job-info", jobInfoRoute);
 app.use("/login", loginRoute);
 app.use("/new-password", newPasswordRoute);
 app.use("/reset-password", resetPasswordRoute);
+app.use("/", formsRoute);
 // app.use("/", Route);
 
 app.listen(PORT, () => {

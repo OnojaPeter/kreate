@@ -4,6 +4,4 @@ const  homeController = require('../controllers/homeController')
 
 router.get('/', homeController.home);
 
-router.post('/search-job', homeController.searchJob)
-
 module.exports = router;
