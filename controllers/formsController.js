@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../models/jobs');
-// const { default: mongoose } = require('mongoose');
+const Application = require('../models/applications')
+const upload = require('../middlewares/multerFileUpload');
 
 async function searchJob (req, res) {
     const name = req.body.searchTitle;
@@ -83,8 +84,30 @@ async function postJob (req, res) {
     }
 }
 
+async function submitApplication (req, res) {
+    // const { jobId,  } = req.body;
+    console.log(req.body);
+    try{
+        const filePaths = req.files.map(file => file.path);
+
+        const application = new Application({
+            jobId: req.body.jobId,
+            fullName: req.body.fullName,
+            email: req.body.email,
+            cv: filePaths[0], // Assuming the first file is the CV
+            coverLetter: filePaths[1], // Assuming the second file is the cover letter
+            message: req.body.message
+        });
+          
+        await application.save();
+        res.status(200).send('applied success');
+    } catch (error) {
+        console.error("Error:",error)
+    }
+}
 
 module.exports =  {
     searchJob,
     postJob,
+    submitApplication,
 };

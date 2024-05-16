@@ -5,40 +5,41 @@
             <div class="max-page-width flex flex-col gap-3 md:gap-6 px-4 sm:px-12 md:px-16 mt-28 sm:mt-36 md:mb-24 lg:mb-24">
                 <h1 class="text-2xl font-semibold">Job Application</h1>
 
-                <form action="" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-10 rounded-md">
+                <form action="/submit-application" method="post" enctype="multipart/form-data" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-10 rounded-md">
+                    <input type="hidden" name="jobId" value="<%= jobId %>">
                     <div class="flex flex-col md:flex-row gap-2 md:gap-0 md:justify-between">
                         <div class="w-[100%] md:w-[45%] flex flex-col gap-2">
-                            <label class="font-medium" for="full-name">Full Name</label>
-                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="text" name="full-name" id="full-name" placeholder="Enter your full name">
+                            <label class="font-medium" for="fullName">Full Name*</label>
+                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="text" name="fullName" id="fullName" placeholder="Enter your full name">
                         </div>
                         
                         <div class="w-[100%] md:w-[45%] flex flex-col gap-2">
-                            <label class="font-medium" for="email"> Email</label>
+                            <label class="font-medium" for="email"> Email*</label>
                             <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="email" name="email" id="email" placeholder="Enter your email">
                         </div>
                     </div>
                     <div class="flex flex-col md:flex-row gap-2 md:gap-0 md:justify-between">
                         <div class="w-[100%] md:w-[45%]">
                             <div class="w-[70%] md:w-[85%] lg:w-[70%] flex flex-col gap-2">
-                                <label class="font-medium" for="upload-cv">Upload CV</label>
-                                <input class="border-2 border-dashed rounded-md h-12 px-6" type="file" name="upload-cv" id="upload-cv" placeholder="Drag and drop or browse files">
+                                <label class="font-medium" for="cv">Upload CV* <span class="ml-3 text-sm font-normal italic">file should not exceed 5mb*</span></label>
+                                <input class="border-2 border-dashed rounded-md h-12 px-6" type="file" name="cv" id="cv" placeholder="Drag and drop or browse files">
                             </div>
                         </div>
                         
                         
                         <div class="w-[100%] md:w-[45%]">
                             <div class="w-[70%] md:w-[85%] lg:w-[70%] flex flex-col gap-2">
-                                <label class="font-medium" for="upload-cover-letter"> Upload Cover Letter</label>
-                                <input class="border-2 border-dashed rounded-md h-12 px-6" type="file" name="upload-cover-letter" id="upload-cover-letter" placeholder="Drag and drop or browse files">
+                                <label class="font-medium" for="cv"> Upload Cover Letter (optional)</label>
+                                <input class="border-2 border-dashed rounded-md h-12 px-6" type="file" name="cv" id="cv" placeholder="Drag and drop or browse files">
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <label class="font-medium" for="message">Write your message</label>
+                        <label class="font-medium" for="message">Write your message*</label>
                         <textarea class="py-3 px-6 border rounded-md w-full h-44 focus:outline-none focus:border-[#10B981]" name="message" id="message" placeholder="Type your message here..."></textarea>
                     </div>
 
-                    <button class="bg-[#10B981] text-center text-white font-medium w-[100%] py-2 rounded-md mt-2 md:mt-0" type="submit">Apply</button>
+                    <button class="bg-[#10B981] text-center text-white font-medium w-[100%] py-2 rounded-md mt-2 md:mt-0" type="submit">Submit Application</button>
                     
                 </form>
             </div>

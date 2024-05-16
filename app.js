@@ -52,6 +52,7 @@ const newPasswordRoute = require("./routes/newPasswordRoute");
 const resetPasswordRoute = require("./routes/resetPasswordRoute");
 const formsRoute = require("./routes/formsRoute");
 // const Route = require("./routes/Route");
+const handleMulterErrors = require('./middlewares/handleMulterErrors');
 
 // APP.USE 
 app.use('/', homeRoute);
@@ -67,6 +68,8 @@ app.use("/new-password", newPasswordRoute);
 app.use("/reset-password", resetPasswordRoute);
 app.use("/", formsRoute);
 // app.use("/", Route);
+app.use(handleMulterErrors);
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
