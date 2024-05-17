@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/public', express.static('public'));
+app.use('/uploads', express.static('uploads'));
 app.use('css', express.static('public/css', { 'extensions': ['css']}));
 
 app.set('view engine', 'ejs');
@@ -51,6 +52,7 @@ const loginRoute = require("./routes/loginRoute");
 const newPasswordRoute = require("./routes/newPasswordRoute");
 const resetPasswordRoute = require("./routes/resetPasswordRoute");
 const formsRoute = require("./routes/formsRoute");
+const jobsPostedRoute = require("./routes/jobsPostedRoute");
 // const Route = require("./routes/Route");
 const handleMulterErrors = require('./middlewares/handleMulterErrors');
 
@@ -67,6 +69,7 @@ app.use("/login", loginRoute);
 app.use("/new-password", newPasswordRoute);
 app.use("/reset-password", resetPasswordRoute);
 app.use("/", formsRoute);
+app.use("/", jobsPostedRoute);
 // app.use("/", Route);
 app.use(handleMulterErrors);
 

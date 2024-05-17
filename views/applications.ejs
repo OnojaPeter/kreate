@@ -1,0 +1,32 @@
+<%- include ('partials/header') -%>
+<main>
+    <section class="pt-40">
+        <div class="container mx-auto px-4">
+            <% if(applications.length > 0) { %>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <% applications.forEach(application => { %>
+                        <div class="bg-white border border-gray-300 rounded-lg shadow-md p-6">
+                            <p class="capitalize text-xl mb-4"><strong>Name:</strong> <%= application.fullName %></p>
+                            <p class="text-xl  mb-4"><strong>Email:</strong> <%= application.email %></p>
+                            <p class="text-xl  mb-4"><strong>Message:</strong> <%= application.message %></p>
+                            <a href="/<%= application.cv %>" download="<%= application.cv %>" class="text-blue-500 font-bold hover:underline">
+                                Download CV
+                            </a>
+                            <% if(application.coverLetter > 0) { %>
+                                <a href="/<%= application.coverLetter %>" download="<%= application.coverLetter %>" class="text-blue-500 font-bold hover:underline">
+                                    Download Cover letter
+                                </a>
+                            <% } else{ %>
+                                no cover letter
+                            <% }  %>
+                            <p class="text-lg mt-4"><strong>Date applied:</strong><%= application.createdAt %></p>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p class="text-center text-gray-600">No applications have been submitted</p>
+            <% } %>
+        </div>
+    </section>
+
+</main>

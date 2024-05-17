@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Job = require('../models/jobs')
+const Application = require('../models/applications')
 
 async function jobApplicationController (req, res) {
     const jobId = req.query.id;
@@ -12,4 +13,7 @@ async function jobApplicationController (req, res) {
     }
 }
 
-module.exports =  jobApplicationController;
+
+module.exports =  {
+    jobApplicationController,
+};

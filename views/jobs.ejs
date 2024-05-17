@@ -1,0 +1,21 @@
+<%- include ('partials/header') -%>
+
+<main>
+    <section>
+        <div class="pt-40 container mx-auto p-8">
+            <h1 class="text-3xl font-bold text-center mb-8">All Jobs</h1>
+            <div class="flex flex-wrap gap-8 justify-center">
+                <% jobs.forEach(job => { %>
+                    <div class="bg-white border border-gray-300 rounded-lg shadow-md p-6 w-80 text-center">
+                        <h2 class="text-2xl font-semibold mb-4"><%= job.jobTitle %></h2>
+                        <p class="text-gray-600 mb-2"><%= job.companyName %></p>
+                        <p class="text-gray-600 mb-4"><%= job.companyLocation %></p>
+                        <a href="/job-info/<%= job._id %>" class="text-green-500 font-bold hover:underline block mb-2">View Details</a>
+                        <p class="text-gray-600">Applicants: <%= job.applicationCount %></p>
+                        <a href="/job-applicants/<%= job._id %>" class="text-blue-500 font-bold hover:underline">View Applicants</a>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+</main>
