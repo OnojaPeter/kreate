@@ -12,7 +12,7 @@
                             <label for="title">
                                 <img src="/public/images/search-icon.png" alt="">
                             </label>
-                            <input class="w-[50%] pl-2 me-2 outline-none bg-transparent" type="text" name="searchTitle" placeholder="Enter job title">
+                            <input class="w-[50%] pl-2 me-2 outline-none bg-transparent" type="text" name="searchTitle" placeholder="Enter job title" required>
         
                             <span class="h-14 w-[2px] bg-[#10B981] mr-2"></span>
         
@@ -143,7 +143,7 @@
                     <% if (allJobs) { %>
                         <% allJobs.forEach(job => { %>
                             <div class="categories-box bg-white px-6  pt-3 rounded-lg w-full sm:w-[calc(50%-15px)] md:w-[calc(50%-20px)] lg:w-[calc(33.33%-20px)] flex flex-col">
-                                <a href="/job-application?id=<%= job._id %>" style="display: block; width: 100%;">
+                                <a href="/job-info/<%= job._id %>" style="display: block; width: 100%;">
                                     <div class="">
                                         <div class="flex flex-row gap-4 mb-8">
                                             <div class="w-12 h-12">
@@ -166,7 +166,7 @@
                                         
                                         <div class="flex flex-row items-center justify-between px-3 mb-8">
                                             <h3 class="text-base">$<%= job.salary %></h4></h3>
-                                            <a href="job-application">
+                                            <a href="/job-application?id=<%= job._id %>">
                                                 <h3 class="text-[#10B981] hover:text-white hover:bg-[#10B981] hover:px-2 hover:rounded-md text-xl whitespace-nowrap">Apply Now</h3>
                                             </a>
                                         </div>                   

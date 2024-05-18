@@ -44,6 +44,23 @@
         input[type="checkbox"]:checked + label::after {
             display: block;
         }
+
+        .job-card {
+            position: relative;
+        }
+
+        .job-card a.apply-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .job-card .apply-button button {
+            pointer-events: auto;
+        }
+
     </style>
  
  <%- include ('partials/header') -%>
@@ -238,52 +255,45 @@
                         <div class="flex flex-col gap-6">
                             <% if (jobs && jobs.length > 0) { %>
 
-                            <div>
-                                <div class="flex justify-between">
-                                    <h2 class="font-semibold text-2xl">All Jobs</h2>
-                                    <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
+                                <div>
+                                    <div class="flex justify-between">
+                                        <h2 class="font-semibold text-2xl">All Jobs</h2>
+                                        <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
+                                    </div>
+                                    <p>Showing <%= jobs.length %> results</p>
                                 </div>
-                                <p>Showing <%= jobs.length %> results</p>
-                            </div>
-    
-                            <div class="flex flex-col gap-y-8">
-                                
-                                   
-                                
-                                        <% jobs.forEach(job => { %>
+        
+                                <div class="flex flex-col gap-y-8">
+                                                                
+                                    <% jobs.forEach(job => { %>
+                                        
                                             <div class="job-card">
-                                                <div class=" flex rounded-md py-4 border border-black ">
-                                                    <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                                        <div><img src="/public/images/Ellipse.png" alt=""></div>
-                    
-                                                        <div class="capitalize">
-                                                            <h2 class="text-lg md:text-2xl font-semibold"><%= job.jobTitle %> </h2>
-                                                            <h3 class="text-md font-semibold"><%= job.companyName %></h3>
-                                                            <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                                <p><%= job.jobType%></p>
-                                                                <p><%= job.companyLocation %></p>
+                                                <a href="/job-info/<%= job._id %>" class="no-underline">
+                                                    <div class="flex rounded-md py-4 border border-black">
+                                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
+                                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
+                                                            
+                                                            <div class="capitalize">
+                                                                <h2 class="text-lg md:text-2xl font-semibold"><%= job.jobTitle %></h2>
+                                                                <h3 class="text-md font-semibold"><%= job.companyName %></h3>
+                                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
+                                                                    <p><%= job.jobType %></p>
+                                                                    <p><%= job.companyLocation %></p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
-                                                    <div class="flex justify-between w-[35%] md:w-[35%]">
-                                                        <div class="flex items-center">
-                                                            <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
-                                                        </div>
-                        
-                                                        <div class="h-10 w-10">
-                                                            <img src="/public/images/save-icon.png" alt="">
-                                                        </div>
-                                                    </div>
-                    
-                                                    
-                                                </div>
+                                                    <a href="/job-application?id=<%= job._id %>" class="apply-button no-underline">
+                                                        <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
+                                                    </a>
+                                                </a>
                                             </div>
-                                        <% }); %>
-                                    
-                                <% } else { %>
-                                    <p>No jobs found.</p>
-                                <% } %>
+                                        
+                                    <% }); %>
+                                
+                            <% } else { %>
+                                <p>No jobs found.</p>
+                            <% } %>
                                 <div class="job-card">
                                     <div class=" flex rounded-md py-4 border border-black ">
                                         <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
