@@ -41,9 +41,7 @@ db.once('open', async() => {
 
 // ROUTES 
 const homeRoute = require("./routes/homeRoute");
-const chooseSignupRoute = require("./routes/chooseSignupRoute");
-const clientSignupRoute = require("./routes/clientSignupRoute");
-const talentSignupRoute = require("./routes/talentSignupRoute");
+const signupRoute = require("./routes/signupRoute");
 const provideJobDetailsRoute = require("./routes/provideJobDetailsRoute");
 const findJobRoute = require("./routes/findJobRoute");
 const jobApplicationRoute = require("./routes/jobApplicationRoute");
@@ -58,9 +56,7 @@ const handleMulterErrors = require('./middlewares/handleMulterErrors');
 
 // APP.USE 
 app.use('/', homeRoute);
-app.use("/signup", chooseSignupRoute);
-app.use("/signup/client", clientSignupRoute);
-app.use("/signup/talent", talentSignupRoute);
+app.use("/signup", signupRoute);
 app.use("/post-job", provideJobDetailsRoute);
 app.use("/find-job", findJobRoute);
 app.use("/job-application", jobApplicationRoute);
