@@ -15,3 +15,4 @@ closeIcon.addEventListener('click', function() {
     closeIcon.classList.toggle('hidden');
     body.classList.toggle('menu-open');
 });
+

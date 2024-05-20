@@ -8,12 +8,12 @@ passport.use(new LocalStrategy(
   async (email, password, done) => {
     try {
         const user = await User.findOne({ email });
-        console.log(user)
+        // console.log(user)
         if (!user) {
             return done(null, false, { message: 'Incorrect email' });
         }
         const isMatch = await bcrypt.compare(password, user.password);
-        console.log(isMatch)
+        // console.log(isMatch)
 
         if (!isMatch) {
         return done(null, false, { message: 'Incorrect password' });
@@ -23,19 +23,6 @@ passport.use(new LocalStrategy(
     } catch (error) {
         return done(error);
     }
-    // User.findOne({ email: email }, (err, user) => {
-    //   if (err) return done(err);
-    //   if (!user) {
-    //     return done(null, false, { message: 'Incorrect email.' });
-    //   }
-    //   user.comparePassword(password, (err, isMatch) => {
-    //     if (err) return done(err);
-    //     if (!isMatch) {
-    //       return done(null, false, { message: 'Incorrect password.' });
-    //     }
-    //     return done(null, user);
-    //   });
-    // });
   }
 ));
 
@@ -60,7 +47,7 @@ const sessionPassport = () => {
   return passport.session();
 };
 
-const ensureAuthenticated = (req, res, next) => {
+const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
@@ -70,5 +57,5 @@ const ensureAuthenticated = (req, res, next) => {
 module.exports = {
   initializePassport,
   sessionPassport,
-  ensureAuthenticated
+  isAuthenticated
 };

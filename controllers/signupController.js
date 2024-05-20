@@ -51,7 +51,7 @@ async function clientSignupController (req, res) {
 // }
 
 const talentSignupPost = async (req, res) => {
-    const { email, password } = req.body;
+    const { fname, lname, email, password } = req.body;
   
     try {
       const existingUser = await User.findOne({ email });
@@ -60,18 +60,18 @@ const talentSignupPost = async (req, res) => {
         return res.render('talent-signup', { message });
       }
   
-      const newUser = new User({ email, password, role: 'talent' });
+      const newUser = new User({ fname, lname, email, password, role: 'talent' });
       await newUser.save();
   
       res.redirect('/login');
     } catch (err) {
       console.error(err);
-      res.render('signup/talent', { message: 'An error occurred, please try again.' });
+      res.render('talent-signup', { message: 'An error occurred, please try again.' });
     }
   };
   
   const clientSignupPost = async (req, res) => {
-    const { email, password } = req.body;
+    const { fname, lname, email, password } = req.body;
   
     try {
       const existingUser = await User.findOne({ email });
@@ -80,13 +80,13 @@ const talentSignupPost = async (req, res) => {
         return res.render('client-signup', { message });
       }
   
-      const newUser = new User({ email, password, role: 'client' });
+      const newUser = new User({ fname, lname, email, password, role: 'client' });
       await newUser.save();
   
       res.redirect('/login');
     } catch (err) {
       console.error(err);
-      res.render('signup/client', { message: 'An error occurred, please try again.' });
+      res.render('client-signup', { message: 'An error occurred, please try again.' });
     }
   };
   

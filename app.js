@@ -5,7 +5,8 @@ const session = require('express-session');
 require('dotenv').config();
 const PORT = 3000;
 const passportMiddleware = require('./middlewares/passport');
-const checkAuthentication =  passportMiddleware.ensureAuthenticated;
+const checkAuthentication =  passportMiddleware.isAuthenticated;
+const attachUser = require('./middlewares/attachUser')
 
 const app = express();
 app.use(express.json());
@@ -41,8 +42,8 @@ app.use(session({
 app.use(passportMiddleware.initializePassport());
 app.use(passportMiddleware.sessionPassport());
 
-
-
+app.use(attachUser);
+// app.use(checkAuthentication)
 
 // ROUTES 
 const homeRoute = require("./routes/homeRoute");
@@ -56,6 +57,7 @@ const newPasswordRoute = require("./routes/newPasswordRoute");
 const resetPasswordRoute = require("./routes/resetPasswordRoute");
 const formsRoute = require("./routes/formsRoute");
 const jobsPostedRoute = require("./routes/jobsPostedRoute");
+const logoutRoute = require("./routes/logoutRoute");
 // const Route = require("./routes/Route");
 const handleMulterErrors = require('./middlewares/handleMulterErrors');
 
@@ -71,6 +73,7 @@ app.use("/new-password", newPasswordRoute);
 app.use("/reset-password", resetPasswordRoute);
 app.use("/", formsRoute);
 app.use("/", jobsPostedRoute);
+app.use("/logout", logoutRoute);
 // app.use("/", Route);
 app.use(handleMulterErrors);
 

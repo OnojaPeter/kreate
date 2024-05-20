@@ -12,6 +12,42 @@
     <!-- icons -->
     <script src="https://kit.fontawesome.com/64af63ddf7.js" crossorigin="anonymous"></script>
 
+    <style>
+        /* Dropdown container */
+        .relative {
+            position: relative;
+        }
+
+        /* Dropdown content */
+        .dropdown-content {
+            position: absolute;
+            right: 0;
+            background-color: #ffffff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #10B981;
+            color: white;
+        }
+
+        /* Show the dropdown menu on hover */
+        .relative:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
     <link rel="stylesheet" href="/public/css/styles.css">
     <link rel="stylesheet" href="/public/css/output.css">
     
@@ -33,10 +69,26 @@
             <a href="/find-job" class="hover:underline hover:text-[#10B981]">Find jobs</a>
             <a href="/post-job" class="hover:underline hover:text-[#10B981]">Post jobs</a>
         </div>
+
         <div class="gap-4 hidden md:flex md:gap-8 lg:gap-14 items-center">
-            <a href="login" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-1 rounded-md">Login</a>
-            <a class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-1 rounded-md text-white" href="signup">Sign Up</a>
+            <% if (!user) { %>
+                <a href="/login" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-1 rounded-md">Login</a>
+                <a href="/signup" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-1 rounded-md text-white">Sign Up</a>
+            <% } else { %>
+                <div class="relative">
+                    <a href="#" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-1 rounded-md inline-flex items-center">
+                        <i class="fa-solid fa-user fa-lg mr-2"></i>Profile
+                    </a>
+                    <div class="dropdown-content absolute right-0 hidden bg-white shadow-md rounded-md w-48 mt-0">
+                        <a href="/profile" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Profile</a>
+                        <a href="/jobs-posted" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Jobs Posted</a>
+                        <a href="/change-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Change Password</a>
+                        <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Logout</a>
+                    </div>
+                </div>
+            <% } %>
         </div>
+        
 
         <!-- Mobile view -->
         <div id="hamMenu" class="hidden md:hidden absolute top-14 right-0 bg-white p-4">
@@ -47,8 +99,24 @@
                 <a href="/" class="hover:underline hover:text-[#10B981] py-4 border-b">Home</a>
                 <a href="/find-job" class="hover:underline hover:text-[#10B981] py-4 border-b">Find jobs</a>
                 <a href="/post-job" class="hover:underline hover:text-[#10B981] py-4 border-b">Post jobs</a>
-                <a href="login" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
-                <a href="signup" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white ">Sign Up</a>
+                <% if (!user) { %>
+                    <a href="/login" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
+                    <a href="/signup" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white">Sign Up</a>
+                <% } else { %>
+                    <div class="relative">
+                        <a href="#" id="profileLink" class="hover:bg-[#10B981] hover:text-white hover:px-2 py-4 rounded-md inline-flex items-center">
+                            Profile<i class="fa-solid fa-angle-down ml-2"></i>
+                        </a>
+                        <div id="dropdownMenu" class="dropdown-content absolute right-0 hidden bg-white shadow-md rounded-md w-full mt-2">
+                            <a href="/post-job" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white border-b">Profile</a>
+                            <a href="/jobs-posted" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white border-b">Jobs Posted</a>
+                            <a href="/change-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white border-b">Change Password</a>
+                            <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Logout</a>
+                        </div>
+                    </div>
+                <% } %>
+                <!-- <a href="login" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
+                <a href="signup" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white ">Sign Up</a> -->
             </div>
         </div>
         
@@ -60,3 +128,26 @@
 </header>
 
 <script src="/public/js/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const profileLink = document.getElementById('profileLink');
+        if(profileLink){
+            // const profileLink = document.getElementById('profileLink');
+        const dropdownContent = document.getElementById('dropdownMenu');
+
+        profileLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            // alert('here')
+            const show = dropdownContent.classList.toggle('hidden');
+            // console.log(show);
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!profileLink.contains(event.target) && !dropdownContent.contains(event.target)) {
+                dropdownContent.classList.add('hidden');
+            }
+        });
+        }
+       
+    });
+</script>

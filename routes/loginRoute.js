@@ -6,7 +6,7 @@ const passport = require('passport')
 router.get('/', loginController);
 
 router.post('/', passport.authenticate('local', {
-    successRedirect: '/find-job',
+    successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
   }));
