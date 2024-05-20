@@ -50,6 +50,11 @@ const jobSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     applyBefore: {
         type: Date,
         required: true

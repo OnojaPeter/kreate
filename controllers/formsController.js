@@ -73,6 +73,7 @@ async function postJob (req, res) {
             salary,
             vacancy,
             applyBefore,
+            postedBy: req.user._id
         });
 
         // Save the new job to the database
