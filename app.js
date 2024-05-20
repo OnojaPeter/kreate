@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const flash = require('connect-flash');
 require('dotenv').config();
 const PORT = 3000;
 const passportMiddleware = require('./middlewares/passport');
@@ -43,7 +44,14 @@ app.use(passportMiddleware.initializePassport());
 app.use(passportMiddleware.sessionPassport());
 
 app.use(attachUser);
-// app.use(checkAuthentication)
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  // res.locals.user = req.user || null;
+  next();
+});
 
 // ROUTES 
 const homeRoute = require("./routes/homeRoute");
