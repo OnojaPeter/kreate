@@ -57,7 +57,7 @@ async function updateJob (req, res) {
         );
 
         req.flash('success_msg', 'Job updated successfully');
-        res.redirect('/jobs'); // Redirect to the jobs page or any other page
+        res.redirect('/jobs');
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal server error');
@@ -69,10 +69,11 @@ async function deleteJob (req, res) {
     try {
         await Job.findByIdAndDelete(req.params.id);
         req.flash('success_msg', 'Job deleted successfully');
-        res.redirect('/jobs'); // Redirect to the jobs page or any other page
+        res.redirect('/jobs');
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal server error');
+        req.flash('error_msg', 'Failed to delete job');
+        res.redirect('/jobs');
     }
 };
 
