@@ -1,0 +1,62 @@
+<%- include ('partials/header') -%>
+<section class="bg-gray-100">
+    <div class="container mx-auto p-8 pt-40 ">
+        <h1 class="text-3xl font-bold mb-8">Edit Job</h1>
+        <form action="/edit-job/<%= job._id %>" method="POST">
+            <div class="mb-4">
+                <label class="block text-gray-700">Company Name</label>
+                <input type="text" name="companyName" value="<%= job.companyName %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">About Company</label>
+                <textarea name="aboutCompany" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"><%= job.aboutCompany %></textarea>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Company Location</label>
+                <input type="text" name="companyLocation" value="<%= job.companyLocation %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Company Logo</label>
+                <input type="text" name="companyLogo" value="<%= job.companyLogo %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Job Title</label>
+                <input type="text" name="jobTitle" value="<%= job.jobTitle %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Job Description</label>
+                <textarea name="jobDescription" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"><%= job.jobDescription %></textarea>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Job Requirement</label>
+                <textarea name="jobRequirement" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"><%= job.jobRequirement %></textarea>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Job Category</label>
+                <input type="text" name="jobCategory" value="<%= job.jobCategory %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Job Type</label>
+                <input type="text" name="jobType" value="<%= job.jobType %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Job Level</label>
+                <input type="text" name="jobLevel" value="<%= job.jobLevel %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Salary</label>
+                <input type="number" name="salary" value="<%= job.salary %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Vacancy</label>
+                <input type="number" name="vacancy" value="<%= job.vacancy %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Apply Before</label>
+                <input type="date" name="applyBefore" value="<%= job.applyBefore.toISOString().split('T')[0] %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+            </div>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md">Update Job</button>
+        </form>
+    </div>
+    
+</section>

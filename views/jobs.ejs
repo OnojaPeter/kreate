@@ -18,15 +18,21 @@
                             <h2 class="text-2xl font-medium mb-4"><strong>Job Title:</strong>  <%= job.jobTitle %></h2>
                             <p class="text-gray-600 mb-2"><strong>Company name:</strong>  <%= job.companyName %></p>
                             <p class="text-gray-600 mb-4"><strong>Location of company:</strong>  <%= job.companyLocation %></p>
-                            <a href="/job-info/<%= job._id %>" class="text-green-500 font-bold hover:underline block mb-2">View Details</a>
+                            <a href="/job-info/<%= job._id %>" class="text-green-500 font-bold hover:underline block mb-2">View job Details</a>
                             <p class="text-gray-600"><strong>Applicants:</strong> <%= job.applicationCount %></p>
                             <a href="/job-applicants/<%= job._id %>" class="text-blue-500 font-bold hover:underline">View Applicants</a>
+
+                            <div class="flex justify-center gap-4 my-3">
+                                <a href="/edit-job/<%= job._id %>" class="text-yellow-500 font-bold hover:underline">Edit</a>
+                                <form action="/delete-job/<%= job._id %>" method="POST">
+                                    <button type="submit" class="text-red-500 font-bold hover:underline" onclick="return confirm('Are you sure you want to delete this job?');">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     <% }) %>
                 </div>
             <% } else { %>
                 <h1 class="text-3xl font-bold text-center mb-8">You have not posted any jobs yet</h1>
-                <!-- <p>You have not posted any jobs yet.</p> -->
             <% } %>
         </div>
     </section>
