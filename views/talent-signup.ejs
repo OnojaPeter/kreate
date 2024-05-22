@@ -1,11 +1,18 @@
 <%- include ('partials/header') -%>
 
+<style>
+    .spinner-border {
+        border-color: #10B981 transparent transparent transparent;
+        border-width: 4px;
+    }
+</style>
+
     <main>
         <section class="flex justify-center ">
             <div class="max-page-width flex flex-col gap-3 md:gap-6 px-4 md:px-0 sm:w-[80%] md:w-[70%] lg:w-[40%] mt-28 sm:mt-36 mb-14 md:mb-24 lg:mb-24">
                 <h1 class="text-3xl md:text-4xl font-medium text-center px-4 md:px-0">Sign up to find work you love</h1>
 
-                <form action="/signup/talent" method="post" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-6 rounded-md">
+                <form action="/signup/talent" method="post" id="signupForm" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-6 rounded-md">
                     <% if (message) { %>
                         <div class="bg-red-600 text-white text-center border-red-800 rounded-md">
                             <p class="text-lg"> <%= message %></p>
@@ -45,7 +52,23 @@
                 </form>
             </div>
         </section>
+        <!-- Spinner element -->
+        <div id="spinner" class="flex-col hidden fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div class="spinner-border animate-spin inline-block w-16 h-16 border-8 rounded-full text-green-500"></div>
+            <p class="text-white">signing up...</p>
+        </div>
     </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const signupForm = document.getElementById('signupForm');
+            const spinner = document.getElementById('spinner');
+    
+            signupForm.addEventListener('submit', function (event) {
+                spinner.classList.remove('hidden');
+            });
+        });
+    </script>
     
 </body>
 </html>

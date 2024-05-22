@@ -61,6 +61,11 @@
             pointer-events: auto;
         }
 
+        .spinner-border {
+            border-color: #10B981 transparent transparent transparent;
+            border-width: 4px;
+        }
+
     </style>
  
  <%- include ('partials/header') -%>
@@ -73,7 +78,7 @@
                     <div class="mx-4 sm:mx-12 md:mx-16">
                         <h1 class="text-center text-4xl sm:text-5xl md:text-6xl font-semibold ">Discover more than <br class="block sm:hidden"> <span class="text-[#10B981]">5000+ jobs</span></h1>
                         
-                        <form action="/find-job" method="post" class="w-[100%] flex justify-center">
+                        <form action="/find-job" method="post" id="findJobForm" class="w-[100%] flex justify-center">
                             <div class="flex flex-col sm:flex-row gap-y-2">
                                 <div class="flex flex-row items-center gap-2 md:gap-6 mt-10 justify-center">
                                     <div class="flex border-black border-2 rounded-lg items-center px-2 sm:px-8 h-[58px] gap-2 sm:gap-4">
@@ -734,27 +739,40 @@
             </div>
             <div class="pb-24"></div>
         </section>       
+
+        <!-- Spinner element -->
+        <div id="spinner" class="flex-col hidden fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+            <div class="spinner-border animate-spin inline-block w-16 h-16 border-8 rounded-full text-green-500"></div>
+        </div>
     </main>
 
     <script>
-        // your-script.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Get search terms from URL query parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    console.log(urlParams);
-    const searchTitle = urlParams.get('searchTitle');
-    const searchLocation = urlParams.get('searchLocation');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const findJobForm = document.getElementById('findJobForm');
+            const spinner = document.getElementById('spinner');
 
-    // Populate search inputs with search terms
-    const searchTitleInput = document.getElementById('searchTitle');
-    const searchLocationInput = document.getElementById('searchLocation');
-    if (searchTitle) {
-        searchTitleInput.value = searchTitle;
-    }
-    if (searchLocation) {
-        searchLocationInput.value = searchLocation;
-    }
-});
+            findJobForm.addEventListener('submit', function (event) {
+                spinner.classList.remove('hidden');
+            });
+
+            // Get search terms from URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            console.log(urlParams);
+            const searchTitle = urlParams.get('searchTitle');
+            const searchLocation = urlParams.get('searchLocation');
+
+            // Populate search inputs with search terms
+            const searchTitleInput = document.getElementById('searchTitle');
+            const searchLocationInput = document.getElementById('searchLocation');
+
+            if (searchTitle) {
+                searchTitleInput.value = searchTitle;
+            }
+            if (searchLocation) {
+                searchLocationInput.value = searchLocation;
+            }
+        });
 
     </script>
 </body>
