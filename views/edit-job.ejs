@@ -17,7 +17,7 @@
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Company Logo</label>
-                <input type="text" name="companyLogo" value="<%= job.companyLogo %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                <input type="file" name="companyLogo" value="<%= job.companyLogo %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Job Title</label>
@@ -33,18 +33,42 @@
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Job Category</label>
-                <input type="text" name="jobCategory" value="<%= job.jobCategory %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                <select name="jobCategory" id="jobCategory" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <option value="<%= job.jobCategory %>"><%= job.jobCategory %></option>
+                    <option value="design">Design</option>
+                    <option value="sales">Sales</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="finance">Finance</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="technology">Technology</option>
+                    <option value="business">Business</option>
+                    <option value="human resource">Human Resource</option>
+                </select>
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Job Type</label>
-                <input type="text" name="jobType" value="<%= job.jobType %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                <select name="jobType" id="jobType" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <option value="<%= job.jobType %>"><%= job.jobType %></option>
+                    <option value="full time">Full time</option>
+                    <option value="part time">Part time</option>
+                    <option value="remote">Remote</option>
+                    <option value="internship">Internship</option>
+                    <option value="contract">Contract</option>
+                </select>
             </div>
             <div class="mb-4">
                 <label class="block text-gray-700">Job Level</label>
-                <input type="text" name="jobLevel" value="<%= job.jobLevel %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                <select name="jobLevel" id="jobLevel" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <option value="<%= job.jobLevel %>"><%= job.jobLevel %></option>
+                    <option value="entrylLevel">Entry Level</option>
+                    <option value="mid level">Mid level</option>
+                    <option value="senior level">Senior Level</option>
+                    <option value="director">Director</option>
+                    <option value="vp or above">VP or above</option>
+                </select>
             </div>
             <div class="mb-4">
-                <label class="block text-gray-700">Salary</label>
+                <label class="block text-gray-700">Salary (in $)</label>
                 <input type="number" name="salary" value="<%= job.salary %>" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
             </div>
             <div class="mb-4">
