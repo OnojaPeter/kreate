@@ -14,7 +14,7 @@
 
                 <form action="/signup/talent" method="post" id="signupForm" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-6 rounded-md">
                     <% if (message) { %>
-                        <div class="bg-red-600 text-white text-center border-red-800 rounded-md">
+                        <div id="message" class="bg-red-600 text-white text-center border-red-800 rounded-md">
                             <p class="text-lg"> <%= message %></p>
                         </div>
                            
@@ -67,8 +67,13 @@
             signupForm.addEventListener('submit', function (event) {
                 spinner.classList.remove('hidden');
             });
+
+            const message = document.getElementById('message');
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 4000); 
         });
     </script>
-    
+
 </body>
 </html>

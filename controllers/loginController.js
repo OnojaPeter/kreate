@@ -3,7 +3,8 @@ const router = express.Router();
 
 async function loginController (req, res) {
     try {
-        res.render('login');
+        const message = '';
+        res.render('login', {message});
     } catch(error) {
         console.error('Error:', error);
     }
