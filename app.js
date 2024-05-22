@@ -67,6 +67,7 @@ const formsRoute = require("./routes/formsRoute");
 const jobsPostedRoute = require("./routes/jobsPostedRoute");
 const editJobRoute = require("./routes/editJobRoute");
 const logoutRoute = require("./routes/logoutRoute");
+const viewJobsApplicationRoute = require("./routes/viewJobsApplicationRoute");
 // const Route = require("./routes/Route");
 const handleMulterErrors = require('./middlewares/handleMulterErrors');
 
@@ -83,6 +84,7 @@ app.use("/reset-password", resetPasswordRoute);
 app.use("/", formsRoute);
 app.use("/", jobsPostedRoute);
 app.use("/", editJobRoute);
+app.use("/", viewJobsApplicationRoute);
 app.use("/logout", logoutRoute);
 // app.use("/", Route);
 app.use(handleMulterErrors);

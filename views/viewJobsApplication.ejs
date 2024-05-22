@@ -1,0 +1,22 @@
+<%- include ('partials/header') -%>
+
+<section>
+    <div class="container mx-auto p-8 pt-40">
+        <h1 class="text-3xl font-bold mb-8 text-center">Your Job Applications</h1>
+        <% if (jobsApplied.length > 0) { %>
+            <div class="flex flex-wrap gap-8 justify-center">
+                <% jobsApplied.forEach(application => { %>
+                    <div class="capitalize bg-white border border-gray-300 rounded-lg shadow-md p-6 w-80 text-center">
+                        <h2 class="text-gray-600 text-lg mb-4"><strong>Job Title:</strong> <%= application.jobId.jobTitle %></h2>
+                        <p class="text-gray-600 mb-2"><strong>Company Name:</strong> <%= application.jobId.companyName %></p>
+                        <p class="text-gray-600 mb-4"><strong>Location:</strong> <%= application.jobId.companyLocation %></p>
+                        <p class="text-gray-600 mb-2"><strong>Applied On:</strong> <%= new Date(application.createdAt).toLocaleDateString('en-GB') %></p>
+                        <a href="/job-info/<%= application.jobId._id %>" class="text-green-500 font-bold hover:underline block mb-2">View Job Details</a>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <h2 class="text-xl font-medium text-center">You have not applied for any jobs yet.</h2>
+        <% } %>
+    </div>
+</section>
