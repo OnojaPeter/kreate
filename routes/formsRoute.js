@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const  formsController = require('../controllers/formsController')
 const upload = require('../middlewares/multerFileUpload');
+const {isClient} = require('../middlewares/passport')
 
 
 router.post('/find-job', formsController.searchJob);
-router.post('/post-job', formsController.postJob);
+router.post('/post-job', isClient, formsController.postJob);
 
 // const cpUpload = upload.fields([{ name: 'cv', maxCount: 1 }, { name: 'coverLetter', maxCount: 1 }])
 

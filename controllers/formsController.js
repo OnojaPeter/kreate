@@ -76,12 +76,9 @@ async function postJob (req, res) {
             postedBy: req.user._id
         });
 
-        // Save the new job to the database
         const savedJob = await newJob.save();
         req.flash('success_msg', 'Job posted successfully');
-        res.redirect('/jobs'); // Replace '/jobs' with your desired route
-        // const savedJob = await newJob.save();
-        // console.log("job saved:", savedJob);
+        res.redirect('/jobs'); 
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
@@ -89,8 +86,6 @@ async function postJob (req, res) {
 }
 
 async function submitApplication (req, res) {
-    // const { jobId,  } = req.body;
-    console.log(req.body);
     try{
         const filePaths = req.files.map(file => file.path);
 
