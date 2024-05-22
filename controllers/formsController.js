@@ -99,7 +99,8 @@ async function submitApplication (req, res) {
         });
           
         await application.save();
-        res.status(200).send('applied success');
+        res.render('application-success')
+        // res.status(200).send('applied success');
     } catch (error) {
         console.error("Error:",error)
     }
