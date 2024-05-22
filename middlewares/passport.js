@@ -54,8 +54,26 @@ const isAuthenticated = (req, res, next) => {
   res.redirect('/login');
 };
 
+const isClient = (req, res, next) => {
+  if (req.isAuthenticated() && req.user.role === 'client') {
+    return next();
+  }
+  req.flash('error_msg', 'You do not have permission to access this page');
+  res.redirect('/login');
+};
+
+const isTalent = (req, res, next) => {
+  if (req.isAuthenticated() && req.user.role === 'talent') {
+    return next();
+  }
+  req.flash('error_msg', 'You do not have permission to access this page');
+  res.redirect('/login');
+};
+
 module.exports = {
   initializePassport,
   sessionPassport,
-  isAuthenticated
+  isAuthenticated,
+  isClient,
+  isTalent,
 };

@@ -5,6 +5,8 @@
             <div class="max-page-width flex flex-col gap-3 md:gap-6 px-4 sm:px-12 md:px-16 mt-28 sm:mt-36 md:mb-24 lg:mb-24">
                 <h1 class="text-2xl font-semibold">Job Application</h1>
 
+                <%- include ('partials/flashError') -%>
+
                 <form action="/submit-application" method="post" enctype="multipart/form-data" class="border p-3 md:p-8 flex flex-col gap-2 md:gap-10 rounded-md">
                     <input type="hidden" name="jobId" value="<%= jobId %>">
                     <div class="flex flex-col md:flex-row gap-2 md:gap-0 md:justify-between">

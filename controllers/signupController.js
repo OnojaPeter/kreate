@@ -12,7 +12,8 @@ async function chooseSignupController (req, res) {
 
 async function talentSignupController (req, res) {
     try {
-        res.render('talent-signup');
+        const message = ''
+        res.render('talent-signup', {message});
     } catch(error) {
         console.error('Error:', error);
     }
@@ -27,28 +28,6 @@ async function clientSignupController (req, res) {
     }
 }
 
-// async function signupPost (req, res) {
-//     try {
-//         const { email, fname, lname, password } = req.body;
-//         const existingUser = await User.findOne({ email});
-//         if (existingUser) {
-//             const message = 'User already exists' 
-//             res.render('client-signup', {message})
-//         // req.flash('error', 'User already exists');
-//         // return res.json({ error: 'User already exists' });
-//         }
-
-//         const newUser = new User({ email, fname, lname, password });
-//         console.log("user details:",newUser);
-        
-//         await newUser.save();
-//         res.redirect('/login');
-        
-//     } catch (error) {
-//         console.error('Error signing up:', error);
-//         // res.redirect('/signup');
-//     }
-// }
 
 const talentSignupPost = async (req, res) => {
     const { fname, lname, email, password } = req.body;
