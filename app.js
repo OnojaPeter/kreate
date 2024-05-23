@@ -6,7 +6,6 @@ const flash = require('connect-flash');
 require('dotenv').config();
 const PORT = 3000;
 const passportMiddleware = require('./middlewares/passport');
-const checkAuthentication =  passportMiddleware.isAuthenticated;
 const attachUser = require('./middlewares/attachUser')
 
 const app = express();

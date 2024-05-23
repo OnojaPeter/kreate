@@ -6,9 +6,9 @@ const Application = require('../models/applications');
 async function jobsPosted (req, res) {
     try {
         const userId = req.user._id;
-        console.log(userId);
+        // console.log(userId);
         const jobs = await Job.find({ postedBy: userId });
-        console.log('job with userId:', jobs)
+        // console.log('job with userId:', jobs)
         // Fetch application counts for each job
         const jobApplicationsCount = await Application.aggregate([
             { $group: { _id: '$jobId', count: { $sum: 1 } } }

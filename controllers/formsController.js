@@ -3,6 +3,7 @@ const router = express.Router();
 const Job = require('../models/jobs');
 const Application = require('../models/applications')
 const upload = require('../middlewares/multerFileUpload');
+const mongoose = require('mongoose')
 
 async function searchJob (req, res) {
     const name = req.body.searchTitle;
@@ -87,19 +88,43 @@ async function postJob (req, res) {
 
 async function submitApplication (req, res) {
     try{
+        const userEmail = req.user.email;
+        const jobId = req.body.jobId;
+
+        // const objectId = mongoose.Types.ObjectId.createFromHexString(jobId);
+        // console.log(objectId)
+        if (!mongoose.Types.ObjectId.isValid(jobId)) {
+            req.flash('error_msg', 'Invalid Job ID');
+            return res.redirect('/some-page'); // Adjust the redirect URL as needed
+        }
+
+        const checkUserOnApplication = await Application.findOne({
+            jobId: jobId,
+            email: userEmail
+        });
+        // console.log("checkUserOnApplication:", checkUserOnApplication)
+
+        if (checkUserOnApplication) {
+            req.flash('error_msg', 'You have already applied for this job');
+            return res.redirect('/job-application?id=' + jobId);
+        }
+
         const filePaths = req.files.map(file => file.path);
 
         const application = new Application({
-            jobId: req.body.jobId,
+            jobId: jobId,
             fullName: req.body.fullName,
             email: req.body.email,
             cv: filePaths[0], // Assuming the first file is the CV
             coverLetter: filePaths[1], // Assuming the second file is the cover letter
-            message: req.body.message
+            message: req.body.message,
+            appliedAt: new Date()
         });
-          
+        //   console.log('application:', application)
         await application.save();
         res.render('application-success')
+
+
         // res.status(200).send('applied success');
     } catch (error) {
         console.error("Error:",error)
