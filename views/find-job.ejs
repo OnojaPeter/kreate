@@ -78,7 +78,7 @@
                     <div class="mx-4 sm:mx-12 md:mx-16">
                         <h1 class="text-center text-4xl sm:text-5xl md:text-6xl font-semibold ">Discover more than <br class="block sm:hidden"> <span class="text-[#10B981]">5000+ jobs</span></h1>
                         
-                        <form action="/find-job" method="post" id="findJobForm" class="w-[100%] flex justify-center">
+                        <form action="/find-job/jobs" method="get" id="findJobForm"  id="findJobForm" class="w-[100%] flex justify-center">
                             <div class="flex flex-col sm:flex-row gap-y-2">
                                 <div class="flex flex-row items-center gap-2 md:gap-6 mt-10 justify-center">
                                     <div class="flex border-black border-2 rounded-lg items-center px-2 sm:px-8 h-[58px] gap-2 sm:gap-4">
@@ -121,23 +121,23 @@
                                 <div class="hidden dropdown">
                                     <ul class="flex flex-col gap-y-2">
                                         <li>
-                                            <input type="checkbox" id="fullTime" name="fullTime" value="fullTime">
+                                            <input type="checkbox" id="fullTime" name="jobType" value="fullTime">
                                             <label for="fullTime">Full time</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="partTime" name="partTime" value="partTime">
+                                            <input type="checkbox" id="partTime" name="jobType" value="partTime">
                                             <label for="partTime">Part time</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="remote" name="remote" value="remote">
+                                            <input type="checkbox" id="remote" name="jobType" value="remote">
                                             <label for="remote">Remote</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="internship" name="internship" value="internship">
+                                            <input type="checkbox" id="internship" name="jobType" value="internship">
                                             <label for="internship">Internship</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="contract" name="contract" value="contract">
+                                            <input type="checkbox" id="contract" name="jobType" value="contract">
                                             <label for="contract">Contract</label>
                                         </li>
                                     </ul>
@@ -155,35 +155,35 @@
                                 <div class="hidden dropdown">
                                     <ul class="flex flex-col gap-y-2">
                                         <li>
-                                            <input type="checkbox" id="design" name="design" value="design">
+                                            <input type="checkbox" id="design" name="jobCategory" value="design">
                                             <label for="design">Design</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="sales" name="sales" value="sales">
+                                            <input type="checkbox" id="sales" name="jobCategory" value="sales">
                                             <label for="sales">Sales</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="marketing" name="marketing" value="marketing">
+                                            <input type="checkbox" id="marketing" name="jobCategory" value="marketing">
                                             <label for="marketing">Marketing</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="finance" name="finance" value="finance">
+                                            <input type="checkbox" id="finance" name="jobCategory" value="finance">
                                             <label for="finance">Finance</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="technology" name="technology" value="technology">
+                                            <input type="checkbox" id="technology" name="jobCategory" value="technology">
                                             <label for="technology">Technology</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="engineering" name="engineering" value="engineering">
+                                            <input type="checkbox" id="engineering" name="jobCategory" value="engineering">
                                             <label for="engineering">Engineering</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="business" name="business" value="business">
+                                            <input type="checkbox" id="business" name="jobCategory" value="business">
                                             <label for="business">Business</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="humanResource" name="humanResource" value="humanResource">
+                                            <input type="checkbox" id="humanResource" name="jobCategory" value="humanResource">
                                             <label for="humanResource">Human Resource</label>
                                         </li>
                                     </ul>
@@ -201,23 +201,23 @@
                                 <div class="hidden dropdown">
                                     <ul class="flex flex-col gap-y-2">
                                         <li>
-                                            <input type="checkbox" id="entryLevel" name="entryLevel" value="entry level">
+                                            <input type="checkbox" id="entryLevel" name="jobLevel" value="entryLevel">
                                             <label for="entryLevel">Entry Level</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="midLevel" name="midLevel" value="mid level">
+                                            <input type="checkbox" id="midLevel" name="jobLevel" value="midLevel">
                                             <label for="midLevel">Mid Level</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="seniorLevel" name="seniorLevel" value="senior level">
+                                            <input type="checkbox" id="seniorLevel" name="jobLevel" value="seniorLevel">
                                             <label for="seniorLevel">Senior Level</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="director" name="director" value="director">
+                                            <input type="checkbox" id="director" name="jobLevel" value="director">
                                             <label for="director">Director</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="vpOrAbove" name="vpOrAbove" value="vp or above">
+                                            <input type="checkbox" id="vpOrAbove" name="jobLevel" value="vpOrAbove">
                                             <label for="vpOrAbove">VP or above</label>
                                         </li>
                                     </ul>
@@ -235,19 +235,19 @@
                                 <div class="hidden dropdown">
                                     <ul class="flex flex-col gap-y-2">
                                         <li>
-                                            <input type="checkbox" id="salary5" name="salary5" value="salary5">
-                                            <label for="salary5">$5 - $100</label>
+                                            <input type="checkbox" id="salary5" name="salary" value="0-100">
+                                            <label for="salary5">Below $100</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="salary100" name="salary100" value="salary100">
+                                            <input type="checkbox" id="salary100" name="salary" value="100-1000">
                                             <label for="salary100">$100 - $1000</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="salary1000" name="salary1000" value="salary1000">
+                                            <input type="checkbox" id="salary1000" name="salary" value="1000-5000">
                                             <label for="salary1000">$1000 - $5000</label>
                                         </li>
                                         <li>
-                                            <input type="checkbox" id="salary5000" name="salary5000" value="salary5000">
+                                            <input type="checkbox" id="salary5000" name="salary" value="5000">
                                             <label for="salary5000">$5000 and above</label>
                                         </li>
                                     </ul>
@@ -749,16 +749,9 @@
     <script>
         
         document.addEventListener('DOMContentLoaded', function() {
-            const findJobForm = document.getElementById('findJobForm');
-            const spinner = document.getElementById('spinner');
-
-            findJobForm.addEventListener('submit', function (event) {
-                spinner.classList.remove('hidden');
-            });
-
             // Get search terms from URL query parameters
             const urlParams = new URLSearchParams(window.location.search);
-            console.log(urlParams);
+            // console.log(urlParams);
             const searchTitle = urlParams.get('searchTitle');
             const searchLocation = urlParams.get('searchLocation');
 
@@ -787,6 +780,116 @@
                     // console.log(thisFilterDropdown)
                 })
             })
+
+
+            //FILTER QUERY
+
+            // Function to handle filter selection
+            async function handleFilterSelection() {
+                const formData = new FormData(document.getElementById('findJobForm')); // Get form data
+                const searchParams = new URLSearchParams(formData); // Convert form data to URLSearchParams object
+
+                // Retrieve selected filter values and add them to the search parameters
+                const selectedFilters = getSelectedFilters();
+                for (const filter in selectedFilters) {
+                    if (selectedFilters.hasOwnProperty(filter)) {
+                        const filterValue = selectedFilters[filter].join(',');
+                        searchParams.append(filter, filterValue);
+                    }
+                }
+
+                document.getElementById('spinner').classList.remove('hidden');
+
+                const minSpinnerDuration = 1000; // 1 second
+
+                // Start a timer for the minimum spinner duration
+                const spinnerTimeout = new Promise(resolve => setTimeout(resolve, minSpinnerDuration));
+
+
+                try {
+                    const response = await fetch('/find-job/jobs?' + searchParams.toString()); // Make GET request with query parameters
+                    const data = await response.json();
+                    await spinnerTimeout;
+                    updateJobListings(data.jobs); // Update the job listings on the page       
+                } catch (error) {
+                    console.error('Error:', error);
+                }finally {
+                    // Hide the spinner
+                    document.getElementById('spinner').classList.add('hidden');
+                }
+            }
+
+            // Function to get selected filters
+            function getSelectedFilters() {
+                const selectedFilters = {}; // Object to hold the selected filters
+                filterContainer.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    if (checkbox.checked) { // Check if the checkbox is selected
+                        const filterType = checkbox.name; // Get the name of the checkbox (e.g., jobType, jobCategory)
+                        if (!selectedFilters[filterType]) {
+                            selectedFilters[filterType] = []; // Initialize an array for the filter type if it doesn't exist
+                        }
+                        selectedFilters[filterType].push(checkbox.value); // Add the checkbox value to the array
+                    }
+                });
+                return selectedFilters; // Return the object with all selected filters
+            }
+
+            // Function to update job listings on the page
+            function updateJobListings(jobs) {
+                const jobListingsContainer = document.querySelector('#searchedJobs .flex.flex-col');
+                jobListingsContainer.innerHTML = ''; // Clear previous job listings
+
+                if (jobs.length > 0) {
+                    const resultInfo = `
+                        <div>
+                            <div class="flex justify-between">
+                                <h2 class="font-semibold text-2xl">All Jobs</h2>
+                                <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
+                            </div>
+                            <p>Showing ${jobs.length} results</p>
+                        </div>`;
+                    jobListingsContainer.insertAdjacentHTML('beforeend', resultInfo); 
+                    
+                    jobs.forEach(job => {
+                        const jobCard = `
+                            <div class="job-card">
+                                <a href="/job-info/${job._id}" class="no-underline">
+                                    <div class="flex rounded-md py-4 border border-black">
+                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
+                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
+                                            <div class="capitalize">
+                                                <h2 class="text-lg md:text-2xl font-semibold">${job.jobTitle}</h2>
+                                                <h3 class="text-md font-semibold">${job.companyName}</h3>
+                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
+                                                    <p>${job.jobType}</p>
+                                                    <p>${job.companyLocation}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="/job-application?id=${job._id}" class="apply-button no-underline">
+                                        <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
+                                    </a>
+                                </a>
+                            </div>`;
+                        jobListingsContainer.insertAdjacentHTML('beforeend', jobCard); // Insert each job card into the container
+                    });
+                } else {
+                    jobListingsContainer.innerHTML = '<p>No jobs found.</p>'; // Show a message if no jobs are found
+                }
+            }
+
+            // Event listener for filter checkboxes
+            const filterContainer = document.querySelector('#filters'); // Ensure this matches your filter container ID
+            filterContainer.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', handleFilterSelection);
+            });
+
+            // Initial event listener for the search form submission
+            document.getElementById('findJobForm').addEventListener('submit', async function(event) {
+                event.preventDefault(); // Prevent default form submission behavior
+                handleFilterSelection(); // Trigger filter selection handler
+            });           
         });
 
     </script>
