@@ -16,7 +16,7 @@ async function findJobController (req, res) {
         if (jobCategory) query.jobCategory = { $in: jobCategory.split(',') };
         // Perform the search
         const jobs = await Job.find(query); // Call the function to construct the query
-        console.log('reached here')
+        // console.log('reached here')
         // Return JSON response
         // res.json({ jobs, jobCategory });
         res.render('find-job', {jobs, jobCategory, searchTitle, searchLocation})

@@ -59,10 +59,12 @@
     <nav  class="flex flex-row justify-between h-14 items-center mx-4 sm:mx-12 md:mx-2 lg:mx-16 max-page-width">
         <!-- Desktop view -->
         <div class="flex md:hidden w-[40%]">
-            <img src="/public/images/Logo-Kreate.png" alt="Kreate Logo">
+            <a href="/">
+                <img class="cursor-pointer" src="/public/images/Logo-Kreate.png" alt="Kreate Logo">
+            </a>
         </div>
         <a class="hidden md:flex" href="/">
-            <img src="/public/images/Logo-Kreate.png" alt="Kreate Logo">
+            <img class="cursor-pointer" src="/public/images/Logo-Kreate.png" alt="Kreate Logo">
         </a>
         <div class="gap-4 hidden md:flex md:gap-8 lg:gap-14">
             <a href="/" class="hover:underline hover:text-[#10B981]">Home</a>
@@ -82,60 +84,70 @@
                     <div class="dropdown-content absolute right-0 hidden bg-white shadow-md rounded-md w-48 mt-0">
                         <% if (user.role === 'client') { %>
                             <a href="/post-job" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Post Job</a>
-                            <a href="/jobs" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Jobs Posted</a>
-
+                            <a href="/jobs" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">View Posted Jobs</a>
+                            <a href="/reset-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Change Password</a>
+                            <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Logout</a>
                         <% } else if (user.role === 'talent') { %>
-                            <a href="/view-applications" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">View Job Applications</a>
+                            <a href="/view-applications" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">View Job Applications</a>
+                            <a href="/reset-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Change Password</a>
+                            <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Logout</a>
                         <% } %>
-                        <a href="/reset-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Change Password</a>
-                        <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Logout</a>
                     </div>
                 </div>
             <% } %>
         </div>
         
 
-        <!-- Mobile view -->
-        <div id="hamMenu" class="hidden md:hidden absolute top-14 right-0 bg-white p-4">
-            <!-- Close button -->
-            <button id="closeIcon" class="absolute top-0 right-0 mt-8 mr-4 sm:mr-12 hidden"><i class="fa-solid fa-xmark fa-xl"></i></button>
-            <!-- Menu items -->
-            <div class="flex flex-col  mt-16">
-                <a href="/" class="hover:underline hover:text-[#10B981] py-4 border-b">Home</a>
-                <a href="/find-job" class="hover:underline hover:text-[#10B981] py-4 border-b">Find jobs</a>
-                <a href="/post-job" class="hover:underline hover:text-[#10B981] py-4 border-b">Post jobs</a>
-                <% if (!user) { %>
-                    <a href="/login" class="hover:bg-[#10B981] hover:text-white px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
-                    <a href="/signup" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white">Sign Up</a>
-                <% } else { %>
-                    <div class="relative">
-                        <a href="#" id="profileLink" class="hover:bg-[#10B981] hover:text-white hover:px-2 py-4 rounded-md inline-flex items-center">
-                            Profile<i class="fa-solid fa-angle-down ml-2"></i>
-                        </a>
-                        <div id="dropdownMenu" class="dropdown-content absolute right-0 hidden bg-white shadow-md rounded-md w-full mt-0">
-                            <% if (user.role === 'client') { %>
-                                <!-- <a href="/post-job" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Post Job</a> -->
-                                <a href="/jobs" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Jobs Posted</a>
-    
-                            <% } else if (user.role === 'talent') { %>
-                                <a href="/view-applications" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">View Job Applications</a>
-                            <% } %>
-                            <a href="/reset-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Change Password</a>
-                            <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white">Logout</a>
-                        </div>
-                    </div>
-                <% } %>
-                <!-- <a href="login" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
-                <a href="signup" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white ">Sign Up</a> -->
-            </div>
-        </div>
+        
         
         <!-- hamburger button -->
-        <button id="hamburger" class="md:hidden"><i class="fa-solid fa-bars fa-xl"></i></button> 
+        <button id="hamburger" class="md:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" id="hamburger-icon" class="h-7 w-7" fill="none" viewBox="0 0 28 28" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h20M4 14h20m-7 8h7" />
+            </svg>
+            
+        </button> 
         
         <!-- <button id="closeIcon" class="hidden md:hidden z-50">☰ ×</button> -->
     </nav>
 </header>
+
+<!-- Mobile view -->
+<div id="hamMenu" class=" absolute top-14 right-0 bg-white p-4 z-50">
+    <!-- Close button -->
+    <button id="closeIcon" class="absolute top-0 right-0 mt-8 mr-4 sm:mr-12"><i class="fa-solid fa-xmark fa-xl"></i></button>
+    <!-- Menu items -->
+    <div class="flex flex-col  mt-16">
+        <a href="/" class="hover:underline hover:text-[#10B981] py-4 border-b nav-link">Home</a>
+        <a href="/find-job" class="hover:underline hover:text-[#10B981] py-4 border-b nav-link">Find jobs</a>
+        <a href="/post-job" class="hover:underline hover:text-[#10B981] py-4 border-b nav-link">Post jobs</a>
+        <% if (!user) { %>
+            <a href="/login" class="hover:underline hover:text-[#10B981] py-4 border-b nav-link">Login</a>
+            <a href="/signup" class="hover:underline hover:text-[#10B981] py-4 nav-link">Sign Up</a>
+        <% } else { %>
+            <div class="relative">
+                <a href="#" id="profileLink" class="hover:bg-[#10B981] hover:text-white hover:px-2 py-4 rounded-md inline-flex items-center nav-link">
+                    Profile<i class="fa-solid fa-angle-down ml-2"></i>
+                </a>
+                <div id="dropdownMenu" class="dropdown-content absolute right-0 hidden bg-white shadow-md rounded-md w-full mt-0">
+                    <% if (user.role === 'client') { %>
+                        <!-- <a href="/post-job" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Post Job</a> -->
+                        <a href="/jobs" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">View Posted Jobs</a>
+                        <a href="/reset-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Change Password</a>
+                        <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Logout</a>
+
+                    <% } else if (user.role === 'talent') { %>
+                        <a href="/view-applications" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">View Job Applications</a>
+                        <a href="/reset-password" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Change Password</a>
+                        <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-[#10B981] hover:text-white rounded-md">Logout</a>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+        <!-- <a href="login" class="hover:bg-[#10B981] hover:text-white hover:px-2 lg:px-4 py-2 mb-3 rounded-md border-b">Login</a>
+        <a href="signup" class="bg-[#10B981] hover:bg-green-700 px-2 lg:px-4 py-2 rounded-md text-white ">Sign Up</a> -->
+    </div>
+</div>
 
 <script src="/public/js/script.js"></script>
 <script>
