@@ -5,19 +5,24 @@ const Job = require('../models/jobs');
 // const somthing = location.searchJob;
 async function findJobController (req, res) {
     try {
-        const { searchTitle, searchLocation } = req.query;
+        const { category:jobCategory, searchTitle, searchLocation } = req.query;
+        
+        let query = {};
 
-        if (searchTitle || searchLocation) {
-            // If search parameters are provided, perform the search
-            const jobs = await findJobQuery(req.query); // Call the function to construct the query
-            res.json({ jobs, searchTitle, searchLocation }); // Return JSON response
-        } else {
-            // If no search parameters provided, return an empty response or all jobs
-            const jobs = await Job.find({});
-            res.render('find-job', { jobs, searchTitle, searchLocation });
-        }
+        // Check if category parameter is provided
+        // if (category) {
+        //     query.jobCategory = category; // Add category filter to the query
+        // }
+        if (jobCategory) query.jobCategory = { $in: jobCategory.split(',') };
+        // Perform the search
+        const jobs = await Job.find(query); // Call the function to construct the query
+        console.log('reached here')
+        // Return JSON response
+        // res.json({ jobs, jobCategory });
+        res.render('find-job', {jobs, jobCategory, searchTitle, searchLocation})
     } catch(error) {
         console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred while fetching jobs.' });
     }
 }
 

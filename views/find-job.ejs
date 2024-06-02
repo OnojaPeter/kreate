@@ -111,8 +111,8 @@
                     <div class="w-[100%] md:w-[25%]" id="filters">
                         <div class="flex gap-y-2 md:gap-y-4 flex-col" id="filters">
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between">
-                                    <span class="w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Job Type</span> 
+                                <div class="flex md:justify-between cursor-pointer">
+                                    <span class=" w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Job Type</span> 
                                     <div class="w-5  flex items-center">
                                         <img class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
                                     </div>
@@ -145,14 +145,14 @@
                             </div>
     
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between">
+                                <div class="flex md:justify-between cursor-pointer">
                                     <span class="w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Job Category</span> 
                                     <div class="w-5 flex items-center">
-                                        <img class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
+                                        <img id="jobCategoryArrow" class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
                                     </div>
                                 </div> 
     
-                                <div class="hidden dropdown">
+                                <div class="hidden dropdown" id="jobCategory">
                                     <ul class="flex flex-col gap-y-2">
                                         <li>
                                             <input type="checkbox" id="design" name="jobCategory" value="design">
@@ -191,7 +191,7 @@
                             </div>
     
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between">
+                                <div class="flex md:justify-between cursor-pointer">
                                     <span class="w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Job Level</span> 
                                     <div class="w-5 flex items-center">
                                         <img class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
@@ -225,7 +225,7 @@
                             </div>
                             
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between">
+                                <div class="flex md:justify-between cursor-pointer">
                                     <span class="w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Salary Range</span> 
                                     <div class="w-5 flex items-center">
                                         <img class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
@@ -748,10 +748,10 @@
 
     <script>
         
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded',async function() {
             // Get search terms from URL query parameters
             const urlParams = new URLSearchParams(window.location.search);
-            // console.log(urlParams);
+            console.log(urlParams);
             const searchTitle = urlParams.get('searchTitle');
             const searchLocation = urlParams.get('searchLocation');
 
@@ -765,6 +765,27 @@
             if (searchLocation) {
                 searchLocationInput.value = searchLocation;
             }
+
+            const category = urlParams.get('category');
+            console.log('category:', category);
+    
+            // Check and set the category filter if it exists
+            if (category) {
+                const checkbox = await document.querySelector(`input[name="jobCategory"][value="${category}"]`);
+                if (checkbox) {
+                    checkbox.checked = true;
+                    
+                    const categoryFilterDropdown = document.getElementById('jobCategory');
+                    const categoryFilterArrow = document.getElementById('jobCategoryArrow');
+
+                    categoryFilterDropdown.classList.toggle('hidden')
+                    categoryFilterArrow.classList.toggle('rotate-180')
+                }
+                // Call handleFilterSelection to apply filters and fetch jobs
+                // handleFilterSelection();
+            }
+            
+            
 
             //TOGGLE THE FILTER DROPDOWN
             const jobFilter = document.querySelectorAll('#filters .filter')
@@ -781,7 +802,7 @@
                 })
             })
 
-
+        });
             //FILTER QUERY
 
             // Function to handle filter selection
@@ -890,7 +911,7 @@
                 event.preventDefault(); // Prevent default form submission behavior
                 handleFilterSelection(); // Trigger filter selection handler
             });           
-        });
+       
 
     </script>
 </body>
