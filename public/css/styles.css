@@ -17,7 +17,8 @@ header a {
 }
 .colored-section {
     /* height: 100vh; */
-    background-image: linear-gradient(to bottom, #60EEBF80 90%, #D9D9D9 90%); /* formally 93% */
+    /* background-image: linear-gradient(to bottom, #60EEBF80 90%, #D9D9D9 90%);  */
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255, 0.07) 0px, rgba(255,255,255, 0.07) 1px,transparent 1px, transparent 26px),repeating-linear-gradient(90deg, rgba(255,255,255, 0.07) 0px, rgba(255,255,255, 0.07) 1px,transparent 1px, transparent 26px),linear-gradient(90deg, rgba(96,238,191, 0.5019607843137255),rgba(96,238,191, 0.5019607843137255));
 }
 .categories-box {
     box-shadow: 0px 4px 4px 0px #00000040;
