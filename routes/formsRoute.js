@@ -6,9 +6,11 @@ const {isClient, isTalent} = require('../middlewares/passport')
 
 
 router.post('/find-job', formsController.searchJob);
+
 router.post('/post-job', isClient, formsController.postJob);
 
-// const cpUpload = upload.fields([{ name: 'cv', maxCount: 1 }, { name: 'coverLetter', maxCount: 1 }])
-
 router.post('/submit-application', isTalent, upload.array('cv', 2), formsController.submitApplication);
+
+router.post('/subscribe', formsController.subscribe)
+
 module.exports = router;

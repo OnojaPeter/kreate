@@ -4,6 +4,9 @@ const Job = require('../models/jobs');
 const Application = require('../models/applications')
 const upload = require('../middlewares/multerFileUpload');
 const mongoose = require('mongoose')
+const transporter = require('../utilities/transporter')
+require('dotenv').config();
+const nodemailer = require('nodemailer');
 
 async function searchJob (req, res) {
     const name = req.body.searchTitle;
@@ -30,12 +33,8 @@ async function searchJob (req, res) {
         }
 
         // console.log('query:',query);
-        // Execute the query to find matching jobs
         const findJobs = await Job.find(query);
         // console.log('job found:',findJobs);
-        
-          
-        // console.log(findJobs)
         res.render('find-job', {jobs:findJobs,  searchTitle: name, searchLocation:location})
     } catch(error) {
         console.error('Error:', error);
@@ -95,7 +94,7 @@ async function submitApplication (req, res) {
         // console.log(objectId)
         if (!mongoose.Types.ObjectId.isValid(jobId)) {
             req.flash('error_msg', 'Invalid Job ID');
-            return res.redirect('/some-page'); // Adjust the redirect URL as needed
+            return res.redirect('/find-job'); // Adjust the redirect URL as needed
         }
 
         const checkUserOnApplication = await Application.findOne({
@@ -131,8 +130,37 @@ async function submitApplication (req, res) {
     }
 }
 
+async function subscribe (req, res) {
+    const email = req.body.email
+    try {
+
+        let mailOptions = {
+            from: `"Peter" <${process.env.TRANSPORTER_USER}>`,
+            to: email,
+            subject: 'Welcome to Kreate Job Alerts!',
+            text: `Dear ${email},
+
+                Thank you for signing up for job alerts from Kreate! We're excited to help you find the perfect job. From now on, you'll be receiving daily job alerts tailored to your preferences.
+
+                Please note: This is a mockup, and no actual job alerts will be sent. If you have any questions or need further assistance, feel free to contact me.
+
+                Best regards,
+                Peter`,
+                        
+        };
+
+        let info = await transporter.sendMail(mailOptions);
+
+        res.json({ message: 'Subscription successful! You will receive job alerts daily.' });
+        // console.log('Message sent: %s', info.messageId);
+    } catch (error) {
+        console.log('Error:', error);
+        res.json({message: 'Subscription failed. Please try again.'})
+    }
+}
 module.exports =  {
     searchJob,
     postJob,
     submitApplication,
+    subscribe
 };
