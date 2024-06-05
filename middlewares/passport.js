@@ -70,10 +70,20 @@ const isTalent = (req, res, next) => {
   res.redirect('/login');
 };
 
+function saveOriginalUrl(req, res, next) {
+  if (!req.isAuthenticated() && req.method === 'GET') {
+      req.session.returnTo = req.originalUrl;
+      console.log(req.session.returnTo)
+      console.log(req.originalUrl)
+  }
+  next();
+}
+
 module.exports = {
   initializePassport,
   sessionPassport,
   isAuthenticated,
   isClient,
   isTalent,
+  saveOriginalUrl
 };

@@ -1,28 +1,21 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const flash = require('connect-flash');
-require('dotenv').config();
-const PORT = 3000;
+const MongoStore = require('connect-mongo');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const passportMiddleware = require('./middlewares/passport');
-const attachUser = require('./middlewares/attachUser')
+const attachUser = require('./middlewares/attachUser');
+require('dotenv').config();
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use('/public', express.static('public'));
-app.use('/uploads', express.static('uploads'));
-app.use('css', express.static('public/css', { 'extensions': ['css']}));
-
-app.set('view engine', 'ejs');
+const PORT = 3000;
 
 // mongodb connetion
 const uri = 'mongodb://127.0.0.1:27017/Kreate';
 // const uri = process.env.MONGODB_URI;
-
 mongoose.connect(uri);
 const db = mongoose.connection;
 // Event listeners for connection status
@@ -35,19 +28,43 @@ db.once('open', async() => {
 app.use(session({
   secret: 'your_secret_key',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: uri }),
+  cookie: {
+    httpOnly: true,
+    expires: Date.now() + 1000 * 60 *60 * 24 * 7,
+    maxAge: 1000 * 60 *60 * 24 * 7
+}
 }));
+app.use(passport.authenticate('session'));
 
 // Initialize Passport and use session
 app.use(passportMiddleware.initializePassport());
 app.use(passportMiddleware.sessionPassport());
 
+// Body parsers
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Static files
+app.use('/public', express.static('public'));
+app.use('/uploads', express.static('uploads'));
+app.use('css', express.static('public/css', { 'extensions': ['css']}));
+
+//view engine
+app.set('view engine', 'ejs');
+
+app.use(express.urlencoded({ extended: false }));
+
 app.use(attachUser);
+
 app.use(flash());
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');
+  res.locals.session = req.session
   // res.locals.user = req.user || null;
   next();
 });

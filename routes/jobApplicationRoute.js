@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const applicationController = require('../controllers/jobApplicationController');
-const {isTalent} = require('../middlewares/passport')
+// const passport = require('passport')
+const {isTalent, saveOriginalUrl} = require('../middlewares/passport')
 
-router.get('/', isTalent, applicationController.jobApplicationController);
+router.get('/',saveOriginalUrl, isTalent, applicationController.jobApplicationController);
 
 module.exports = router;
