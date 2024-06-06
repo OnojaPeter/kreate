@@ -95,11 +95,11 @@
                                         <input class="w-[80%] outline-none bg-transparent " type="text" name="searchLocation" placeholder="Location, country, city..." value="<%= searchLocation || '' %>" >
                                     </div>
                                                 
-                                    <button class="hidden sm:block rounded-lg bg-[#10B981] text-white px-12 h-[58px]" type="submit">Search</button>
+                                    <button class="hidden sm:block hover:shadow-2xl rounded-lg bg-[#10B981] text-white px-12 h-[58px]" type="submit">Search</button>
                                     
                                 </div>
                                 
-                                <button class="block sm:hidden  rounded-lg bg-[#10B981] text-white px-12 h-[58px]" type="submit">Search</button>                                
+                                <button class="block sm:hidden hover:shadow-2xl rounded-lg bg-[#10B981] text-white px-12 h-[58px]" type="submit">Search</button>                                
                             </div>
                             
                         </form>
@@ -111,7 +111,7 @@
                     <div class="w-[100%] md:w-[25%]" id="filters">
                         <div class="flex gap-y-2 md:gap-y-4 flex-col" id="filters">
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between cursor-pointer">
+                                <div class="flex md:justify-between cursor-pointer hover:text-[#10B981]">
                                     <span class=" w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Job Type</span> 
                                     <div class="w-5  flex items-center">
                                         <img class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
@@ -145,7 +145,7 @@
                             </div>
     
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between cursor-pointer">
+                                <div class="flex md:justify-between cursor-pointer hover:text-[#10B981]">
                                     <span class="w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Job Category</span> 
                                     <div class="w-5 flex items-center">
                                         <img id="jobCategoryArrow" class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
@@ -191,7 +191,7 @@
                             </div>
     
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between cursor-pointer">
+                                <div class="flex md:justify-between cursor-pointer hover:text-[#10B981]">
                                     <span class="w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Job Level</span> 
                                     <div class="w-5 flex items-center">
                                         <img class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
@@ -225,7 +225,7 @@
                             </div>
                             
                             <div class="flex flex-col gap-y-2 filter">
-                                <div class="flex md:justify-between cursor-pointer">
+                                <div class="flex md:justify-between cursor-pointer hover:text-[#10B981]">
                                     <span class="w-[40%] md:w-[100%] font-semibold text-lg md:text-2xl">Salary Range</span> 
                                     <div class="w-5 flex items-center">
                                         <img class="arrow transition-transform" src="/public/images/arrow-up.png" alt="arow up"> 
@@ -272,7 +272,7 @@
                                                                 
                                     <% jobs.forEach(job => { %>
                                         
-                                            <div class="job-card">
+                                            <div class="job-card hover:shadow-2xl">
                                                 <a href="/job-info/<%= job._id %>" class="no-underline">
                                                     <div class="flex rounded-md py-4 border border-black">
                                                         <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
@@ -288,8 +288,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="/job-application?id=<%= job._id %>" class="apply-button no-underline">
-                                                        <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
+                                                    <a href="/job-application?id=<%= job._id %>" class="apply-button no-underline  hover:shadow-2xl">
+                                                        <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2 transition transition-transform duration-300 hover:scale-105">Apply Now</button>
                                                     </a>
                                                 </a>
                                             </div>
