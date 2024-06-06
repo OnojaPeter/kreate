@@ -47,7 +47,6 @@ async function postJob (req, res) {
             companyName,
             aboutCompany,
             companyLocation,
-            companyLogo,
             jobTitle,
             jobDescription,
             jobRequirement,
@@ -58,6 +57,8 @@ async function postJob (req, res) {
             vacancy,
             applyBefore,
         } = req.body
+
+        const companyLogo = req.file ? req.file.path : '/public/images/Ellipse.png';
 
         const newJob = new Job({
             companyName,

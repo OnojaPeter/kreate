@@ -276,7 +276,10 @@
                                                 <a href="/job-info/<%= job._id %>" class="no-underline">
                                                     <div class="flex rounded-md py-4 border border-black">
                                                         <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
+                                                            <!-- <div><img src="/public/images/Ellipse.png" alt=""></div> -->
+                                                            <div class="w-12 h-12 rounded-full overflow-hidden border border-black">
+                                                                <img class="w-full h-full object-cover" src="<%= job.companyLogo %>" alt="">
+                                                            </div>
                                                             
                                                             <div class="capitalize">
                                                                 <h2 class="text-lg md:text-2xl font-semibold"><%= job.jobTitle %></h2>

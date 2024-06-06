@@ -7,7 +7,7 @@ const {isClient, isTalent} = require('../middlewares/passport')
 
 router.post('/find-job', formsController.searchJob);
 
-router.post('/post-job', isClient, formsController.postJob);
+router.post('/post-job', isClient, upload.single('companyLogo'), formsController.postJob);
 
 router.post('/submit-application', isTalent, upload.array('cv', 2), formsController.submitApplication);
 

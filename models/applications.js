@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-//view in mongosh with db.application.find().pretty()
+//view in mongosh with db.applications.find().pretty()
 const applicationSchema = new mongoose.Schema({
     jobId: {
         type: mongoose.Schema.Types.ObjectId,

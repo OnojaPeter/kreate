@@ -23,7 +23,6 @@ async function updateJob (req, res) {
             companyName,
             aboutCompany,
             companyLocation,
-            companyLogo,
             jobTitle,
             jobDescription,
             jobRequirement,
@@ -35,6 +34,16 @@ async function updateJob (req, res) {
             applyBefore,
         } = req.body;
 
+        // const companyLogo = req.file ? req.file.path : '';
+        const existingJob = await Job.findById(req.params.id);
+        if (!existingJob) {
+            return res.status(404).json({ message: 'Job not found' });
+        }
+
+        // Handle the logo upload
+        const companyLogo = req.file ? req.file.path : existingJob.companyLogo || 'public/images/Ellipse.png';
+        console.log('company logo details:', companyLogo)
+        
         const updatedJob = await Job.findByIdAndUpdate(
             req.params.id,
             {
