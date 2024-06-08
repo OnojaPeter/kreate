@@ -7,13 +7,14 @@ async function jobInfoController (req, res) {
     try {
         // Fetch job details from MongoDB using the jobId
         const job = await Job.findById(jobId);
-        // console.log('info on job:',job);
+        const allJobs = await Job.find({_id: { $ne: jobId}}).sort({ createdAt: -1 }).limit(5)
+        // console.log('allJobs:',allJobs);
         if (!job) {
             // Handle case where job is not found
             return res.status(404).send('Job not found');
         }
         // Render the job details page with the job data
-        res.render('job-info', { job });
+        res.render('job-info', { job, allJobs });
     } catch (error) {
         console.error('Error:', error);
         // Handle other errors

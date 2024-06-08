@@ -259,7 +259,7 @@
                     <div class="w-[100%] mt-5 md:mt-0 md:w-[65%]" id="searchedJobs">
                         <div class="flex flex-col gap-6">
 
-                            <div id="job-list" class="flex flex-col gap-y-4 md:gap-y-8"></div>
+                            <div id="job-list" class="flex flex-col gap-y-4 md:gap-y-6"></div>
       
                             <div id="pagination" class="flex justify-center mt-4 gap-2">
                                 <!-- <button id="prev-button" class="hidden rounded-lg bg-[#10B981] text-white text-sm px-4 py-2">Previous</button>
@@ -635,7 +635,7 @@
 
                 document.getElementById('spinner').classList.remove('hidden');
 
-                const minSpinnerDuration = 500; // 1 second
+                const minSpinnerDuration = 500; // 0.5 second
 
                 // Start a timer for the minimum spinner duration
                 const spinnerTimeout = new Promise(resolve => setTimeout(resolve, minSpinnerDuration));
@@ -692,7 +692,10 @@
                                 <a href="/job-info/${job._id}" class="no-underline">
                                     <div class="flex rounded-md py-4 border border-black">
                                         <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
+                                            <div class="w-12 h-12 rounded-full overflow-hidden border border-black">
+                                                <img class="w-full h-full object-cover" src="${job.companyLogo}" alt="">
+                                            </div>
+                                            
                                             <div class="capitalize">
                                                 <h2 class="text-lg md:text-2xl font-semibold">${job.jobTitle}</h2>
                                                 <h3 class="text-md font-semibold">${job.companyName}</h3>

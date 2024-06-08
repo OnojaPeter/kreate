@@ -35,7 +35,7 @@
 
                                     <div class="flex flex-col gap-2 capitalize">
                                         <h2 class="text-lg md:text-2xl font-semibold"><%= job.companyName %> </h2>
-                                        <h3 class="text-md">Food Delivery Service</h3>
+                                        <!-- <h3 class="text-md">Food Delivery Service</h3> -->
                                         <div class=" text-sm font-medium">
                                             <span>33+ Jobs</span>
                                         </div>
@@ -47,9 +47,9 @@
                                         <a href="/job-application?id=<%= job._id %>"><button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-5 xl:px-7 py-2">Apply Now</button></a>
                                     </div>
     
-                                    <div class="h-10 w-10">
+                                    <!-- <div class="h-10 w-10">
                                         <img src="/public/images/save-icon.png" alt="">
-                                    </div>
+                                    </div> -->
                                 </div>                               
                             </div>
 
@@ -121,10 +121,10 @@
                         <div class="flex flex-col gap-3">
                             <h2 class="text-2xl font-medium">Refer to a friend</h2>
                             <div class="flex flex-row justify-between">
-                                <img id="facebookIcon" src="/public/images/facebook-icon.png" alt="facebook">
-                                <img id="linkedinIcon" src="/public/images/linkedin-icon.png" alt="Linkedin">
-                                <img id="twitterIcon" src="/public/images/twitter-icon.png" alt="Twitter">
-                                <img id="mailIcon" src="/public/images/mail.icon.png" alt="Mail">
+                                <img id="facebookIcon" class="cursor-pointer" src="/public/images/facebook-icon.png" alt="facebook">
+                                <img id="linkedinIcon" class="cursor-pointer" src="/public/images/linkedin-icon.png" alt="Linkedin">
+                                <img id="twitterIcon" class="cursor-pointer" src="/public/images/twitter-icon.png" alt="Twitter">
+                                <img id="mailIcon" class="cursor-pointer" src="/public/images/mail.icon.png" alt="Mail">
                             </div>
                         </div>                        
 
@@ -144,7 +144,16 @@
                                 <h2 class="text-2xl font-medium">Recent Jobs</h2>
 
                                 <div class="flex flex-col gap-4">
-                                    <div class="mini-job-card rounded-xl px-3 h-14 flex justify-between items-center  font-medium">
+                                    <% if (allJobs.length > 0) {%>
+                                        <%allJobs.forEach(jobs => {%>
+                                            <div class="mini-job-card rounded-xl px-3 h-14 flex justify-between items-center  font-medium">
+                                                <h3 class="text-xl capitalize"><%=jobs.jobTitle%></h3>
+                                                
+                                                    <a href="/job-info/<%= jobs._id %>" class="bg-[#10B981] px-4 h-7 rounded-xl text-white">View Job</a>
+                                            </div>
+                                        <% }) %>
+                                    <% } %>
+                                    <!-- <div class="mini-job-card rounded-xl px-3 h-14 flex justify-between items-center  font-medium">
                                         <h3 class="text-xl">Frontend Developer</h3> 
                                         <button class="bg-[#10B981] px-4 h-7 rounded-xl text-white">Apply Now</button>
                                     </div>
@@ -163,7 +172,7 @@
                                     <div class="mini-job-card rounded-xl px-3 h-14 flex justify-between items-center  font-medium">
                                         <h3 class="text-xl">Nodejs Developer</h3> 
                                         <button class="bg-[#10B981] px-4 h-7 rounded-xl text-white">Apply Now</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -176,42 +185,41 @@
     </main>
 
     <script>
-        const linkBox = document.getElementById('linkBox');
-        linkBox.innerText = window.location.href;
-        // Add event listeners to each icon
-        document.getElementById('facebookIcon').addEventListener('click', shareOnFacebook);
-        document.getElementById('linkedinIcon').addEventListener('click', shareOnLinkedin);
-        document.getElementById('twitterIcon').addEventListener('click', shareOnTwitter);
-        document.getElementById('mailIcon').addEventListener('click', shareViaMail);
+        document.addEventListener('DOMContentLoaded', function () {
+            const linkBox = document.getElementById('linkBox');
+            linkBox.innerText = window.location.href;
+            // Add event listeners to each icon
+            document.getElementById('facebookIcon').addEventListener('click', shareOnFacebook);
+            document.getElementById('linkedinIcon').addEventListener('click', shareOnLinkedin);
+            document.getElementById('twitterIcon').addEventListener('click', shareOnTwitter);
+            document.getElementById('mailIcon').addEventListener('click', shareViaMail);
 
-        // Function to share the page link on Facebook
-        function shareOnFacebook() {
-            navigator.share({ url: window.location.href })
-                .then(() => console.log('Link shared successfully on Facebook'))
-                .catch((error) => console.error('Error sharing link on Facebook:', error));
-        }
+            function shareOnFacebook() {
+                const url = window.location.href;
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+            }
 
-        // Function to share the page link on Linkedin
-        function shareOnLinkedin() {
-            navigator.share({ url: window.location.href })
-                .then(() => console.log('Link shared successfully on Linkedin'))
-                .catch((error) => console.error('Error sharing link on Linkedin:', error));
-        }
+            // Function to share the page link on LinkedIn
+            function shareOnLinkedin() {
+                const url = window.location.href;
+                window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}`, '_blank');
+            }
 
-        // Function to share the page link on Twitter
-        function shareOnTwitter() {
-            navigator.share({ url: window.location.href })
-                .then(() => console.log('Link shared successfully on Twitter'))
-                .catch((error) => console.error('Error sharing link on Twitter:', error));
-        }
+            // Function to share the page link on Twitter
+            function shareOnTwitter() {
+                const url = window.location.href;
+                window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`, '_blank');
+            }
 
-        // Function to share the page link via Email
-        function shareViaMail() {
-            // Replace 'mailto:' with the recipient email address
-            window.location.href = `mailto:?subject=Check%20out%20this%20page&body=${window.location.href}`;
-        }
+            // Function to share the page link via Email
+            function shareViaMail() {
+                const url = window.location.href;
+                const subject = "Check out this page!";
+                const body = `I found this Job: ${url}`;
+                window.open(`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_self');
+            }
 
-        document.getElementById('copyButton').addEventListener('click', () => {
+            document.getElementById('copyButton').addEventListener('click', () => {
             const url = window.location.href; // Get the current page URL
             navigator.clipboard.writeText(url).then(() => {
                 // console.log('Link copied to clipboard: ' + url);
@@ -226,7 +234,7 @@
                 alert('Failed to copy link.');
             });
         });
-
+        });
     </script>
 </body>
 </html>
