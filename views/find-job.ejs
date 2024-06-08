@@ -258,216 +258,15 @@
                     </div>
                     <div class="w-[100%] mt-5 md:mt-0 md:w-[65%]" id="searchedJobs">
                         <div class="flex flex-col gap-6">
-                            <% if (jobs && jobs.length > 0) { %>
 
-                                <div>
-                                    <div class="flex justify-between">
-                                        <h2 class="font-semibold text-2xl">All Jobs</h2>
-                                        <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
-                                    </div>
-                                    <p>Showing <%= jobs.length %> results</p>
-                                </div>
-        
-                                <div class="flex flex-col gap-y-4 md:gap-y-8">
-                                                                
-                                    <% jobs.forEach(job => { %>
-                                        
-                                            <div class="job-card hover:shadow-2xl">
-                                                <a href="/job-info/<%= job._id %>" class="no-underline">
-                                                    <div class="flex rounded-md py-4 border border-black">
-                                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                                            <!-- <div><img src="/public/images/Ellipse.png" alt=""></div> -->
-                                                            <div class="w-12 h-12 rounded-full overflow-hidden border border-black">
-                                                                <img class="w-full h-full object-cover" src="<%= job.companyLogo %>" alt="">
-                                                            </div>
-                                                            
-                                                            <div class="capitalize">
-                                                                <h2 class="text-lg md:text-2xl font-semibold"><%= job.jobTitle %></h2>
-                                                                <h3 class="text-md font-semibold"><%= job.companyName %></h3>
-                                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                                    <p><%= job.jobType %></p>
-                                                                    <p><%= job.companyLocation %></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <a href="/job-application?id=<%= job._id %>" class="apply-button no-underline  hover:shadow-2xl">
-                                                        <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2 transition transition-transform duration-300 hover:scale-105">Apply Now</button>
-                                                    </a>
-                                                </a>
-                                            </div>
-                                        
-                                    <% }); %>
-                                
-                            <% } else { %>
-                                <p>No jobs found.</p>
-                            <% } %>
-                                <div class="job-card">
-                                    <div class=" flex rounded-md py-4 border border-black ">
-                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
-        
-                                            <div class="">
-                                                <h2 class="text-lg md:text-2xl font-semibold">Senior Developer </h2>
-                                                <h3 class="text-md font-semibold">Foodmandu</h3>
-                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                    <p>Full time</p>
-                                                    <p>Koteshor Nepal</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="flex justify-between w-[35%] md:w-[35%]">
-                                            <div class="flex items-center">
-                                                <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
-                                            </div>
-            
-                                            <div class="h-10 w-10">
-                                                <img src="/public/images/save-icon.png" alt="">
-                                            </div>
-                                        </div>
-        
-                                        
-                                    </div>
-                                </div>
-    
-                                <div class="job-card">
-                                    <div class=" flex rounded-md py-4 border border-black ">
-                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
-        
-                                            <div class="">
-                                                <h2 class="text-lg md:text-2xl font-semibold">Senior Developer </h2>
-                                                <h3 class="text-md font-semibold">Foodmandu</h3>
-                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                    <p>Full time</p>
-                                                    <p>Koteshor Nepal</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="flex justify-between w-[35%] ">
-                                            <div class="flex items-center">
-                                                <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
-                                            </div>
-            
-                                            <div class="h-10 w-10">
-                                                <img src="/public/images/save-icon.png" alt="">
-                                            </div>
-                                        </div>
-        
-                                        
-                                    </div>
-                                </div>
-    
-                                <div class="job-card">
-                                    <div class=" flex rounded-md py-4 border border-black ">
-                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
-        
-                                            <div class="">
-                                                <h2 class="text-lg md:text-2xl font-semibold">Senior Developer </h2>
-                                                <h3 class="text-md font-semibold">Foodmandu</h3>
-                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                    <p>Full time</p>
-                                                    <p>Koteshor Nepal</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="flex justify-between w-[35%] ">
-                                            <div class="flex items-center">
-                                                <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
-                                            </div>
-            
-                                            <div class="h-10 w-10">
-                                                <img src="/public/images/save-icon.png" alt="">
-                                            </div>
-                                        </div>                                        
-                                    </div>
-                                </div>
-    
-                                <div class="job-card">
-                                    <div class=" flex rounded-md py-4 border border-black ">
-                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
-        
-                                            <div class="">
-                                                <h2 class="text-lg md:text-2xl font-semibold">Senior Developer </h2>
-                                                <h3 class="text-md font-semibold">Foodmandu</h3>
-                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                    <p>Full time</p>
-                                                    <p>Koteshor Nepal</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="flex justify-between w-[35%]">
-                                            <div class="flex items-center">
-                                                <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
-                                            </div>
-            
-                                            <div class="h-10 w-10">
-                                                <img src="/public/images/save-icon.png" alt="">
-                                            </div>
-                                        </div>                                        
-                                    </div>
-                                </div>
-    
-                                <div class="job-card">
-                                    <div class=" flex rounded-md py-4 border border-black ">
-                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
-        
-                                            <div class="">
-                                                <h2 class="text-lg md:text-2xl font-semibold">Senior Developer </h2>
-                                                <h3 class="text-md font-semibold">Foodmandu</h3>
-                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                    <p>Full time</p>
-                                                    <p>Koteshor Nepal</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="flex justify-between w-[35%]">
-                                            <div class="flex items-center">
-                                                <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
-                                            </div>
-            
-                                            <div class="h-10 w-10">
-                                                <img src="/public/images/save-icon.png" alt="">
-                                            </div>
-                                        </div>                                       
-                                    </div>
-                                </div>
-    
-                                <div class="job-card">
-                                    <div class=" flex rounded-md py-4 border border-black ">
-                                        <div class="flex gap-2 md:gap-4 md:gap-8 w-[65%] px-3">
-                                            <div><img src="/public/images/Ellipse.png" alt=""></div>
-        
-                                            <div class="">
-                                                <h2 class="text-lg md:text-2xl font-semibold">Senior Developer </h2>
-                                                <h3 class="text-md font-semibold">Foodmandu</h3>
-                                                <div class="flex gap-2 md:gap-6 text-sm font-medium">
-                                                    <p>Full time</p>
-                                                    <p>Koteshor Nepal</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="flex justify-between w-[35%]">
-                                            <div class="flex items-center">
-                                                <button class="rounded-lg bg-[#10B981] text-white text-sm px-2 md:px-10 py-2">Apply Now</button>
-                                            </div>
-            
-                                            <div class="h-10 w-10">
-                                                <img src="/public/images/save-icon.png" alt="">
-                                            </div>
-                                        </div>                                        
-                                    </div>
-                                </div>
+                            <div id="job-list" class="flex flex-col gap-y-4 md:gap-y-8"></div>
+      
+                            <div id="pagination" class="flex justify-center mt-4 gap-2">
+                                <!-- <button id="prev-button" class="hidden rounded-lg bg-[#10B981] text-white text-sm px-4 py-2">Previous</button>
+                                <button id="next-button" class="rounded-lg bg-[#10B981] text-white text-sm px-4 py-2">Next</button> -->
                             </div>
+
+                                <!-- </div> -->
                         </div>
     
                       
@@ -805,11 +604,20 @@
                 })
             })
 
+            handleFilterSelection();
         });
             //FILTER QUERY
 
+
             // Function to handle filter selection
-            async function handleFilterSelection() {
+            let currentPage = 1;
+            const jobsPerPage = 3;
+            // console.log('current page:', currentPage)
+            // console.log('jobsPerPage:', jobsPerPage);
+            
+            async function handleFilterSelection(page = 1) {
+                currentPage = page;
+                console.log('currentPage on handle:', currentPage);
                 const formData = new FormData(document.getElementById('findJobForm')); // Get form data
                 const searchParams = new URLSearchParams(formData); // Convert form data to URLSearchParams object
 
@@ -822,9 +630,12 @@
                     }
                 }
 
+                searchParams.append('page', currentPage);
+                searchParams.append('limit', jobsPerPage);
+
                 document.getElementById('spinner').classList.remove('hidden');
 
-                const minSpinnerDuration = 1000; // 1 second
+                const minSpinnerDuration = 500; // 1 second
 
                 // Start a timer for the minimum spinner duration
                 const spinnerTimeout = new Promise(resolve => setTimeout(resolve, minSpinnerDuration));
@@ -834,7 +645,7 @@
                     const response = await fetch('/find-job/jobs?' + searchParams.toString()); // Make GET request with query parameters
                     const data = await response.json();
                     await spinnerTimeout;
-                    updateJobListings(data.jobs); // Update the job listings on the page       
+                    updateJobListings(data.jobs, data.totalJobs, data.currentPage, data.totalPages); // Update the job listings on the page       
                 } catch (error) {
                     console.error('Error:', error);
                 }finally {
@@ -859,8 +670,9 @@
             }
 
             // Function to update job listings on the page
-            function updateJobListings(jobs) {
-                const jobListingsContainer = document.querySelector('#searchedJobs .flex.flex-col');
+            function updateJobListings(jobs, totalJobs, currentPage, totalPages) {
+                console.log('currentPage on update:', currentPage);
+                const jobListingsContainer = document.getElementById('job-list')
                 jobListingsContainer.innerHTML = ''; // Clear previous job listings
 
                 if (jobs.length > 0) {
@@ -870,7 +682,7 @@
                                 <h2 class="font-semibold text-2xl">All Jobs</h2>
                                 <h2 class="font-semibold text-lg">Sort by : <span class="font-medium">Most relevant</span></h2>
                             </div>
-                            <p>Showing ${jobs.length} results</p>
+                            <p>Showing ${totalJobs} results</p>
                         </div>`;
                     jobListingsContainer.insertAdjacentHTML('beforeend', resultInfo); 
                     
@@ -898,6 +710,16 @@
                             </div>`;
                         jobListingsContainer.insertAdjacentHTML('beforeend', jobCard); // Insert each job card into the container
                     });
+
+                    const paginationContainer = document.getElementById('pagination');
+                    paginationContainer.innerHTML = `
+                    <button id="prev-button" class="rounded-lg text-white text-sm px-4 py-2 ${currentPage === 1 ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#10B981]'}" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+            <button id="next-button" class="rounded-lg text-white text-sm px-4 py-2 ${currentPage === totalPages ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#10B981]'}" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+                    `;
+
+                    document.getElementById('prev-button').addEventListener('click', () => handleFilterSelection(currentPage - 1));
+                    document.getElementById('next-button').addEventListener('click', () => handleFilterSelection(currentPage + 1));
+                    
                 } else {
                     jobListingsContainer.innerHTML = '<p>No jobs found.</p>'; // Show a message if no jobs are found
                 }
@@ -906,7 +728,7 @@
             // Event listener for filter checkboxes
             const filterContainer = document.querySelector('#filters'); // Ensure this matches your filter container ID
             filterContainer.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', handleFilterSelection);
+                checkbox.addEventListener('change',()=> handleFilterSelection(1));
             });
 
             // Initial event listener for the search form submission

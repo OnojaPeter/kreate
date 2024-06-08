@@ -28,8 +28,8 @@ async function findJobController (req, res) {
 
 async function findJobQuery (req, res) {
     try {
-        const { jobType, jobCategory, jobLevel, salary, searchTitle, searchLocation } = req.query;
-        console.log('search title:', searchTitle)
+        const { jobType, jobCategory, jobLevel, salary, searchTitle, searchLocation, page = 1, limit = 3  } = req.query;
+        // console.log('search title:', searchTitle)
         const query = {};
 
         if (searchTitle) query.jobTitle = { $regex: searchTitle, $options: 'i' };
@@ -56,8 +56,15 @@ async function findJobQuery (req, res) {
             query.$or = salaryQueries;
         }
 
-        const jobs = await Job.find(query);
-        res.json({ jobs });
+        const skip = (page - 1) * limit;
+        const jobs = await Job.find(query).skip(skip).limit(parseInt(limit));
+        // console.log('jobs:', jobs)
+        const totalJobs = await Job.countDocuments(query);
+        // console.log('totalJobs:', totalJobs)
+
+        res.json({ jobs, totalJobs, currentPage: parseInt(page), totalPages: Math.ceil(totalJobs / limit) }); 
+        // const jobs = await Job.find(query);
+        // res.json({ jobs });
     } catch (error) {
         console.error('Error:', error);
         res.status(500).json({ error: 'An error occurred while fetching jobs.' });
