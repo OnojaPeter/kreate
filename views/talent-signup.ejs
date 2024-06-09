@@ -69,9 +69,12 @@
             });
 
             const message = document.getElementById('message');
-            setTimeout(function() {
-                message.style.display = 'none';
-            }, 4000); 
+            if(message > 0){
+                setTimeout(function() {
+                    message.style.display = 'none';
+                }, 4000); 
+            }
+            
         });
     </script>
 

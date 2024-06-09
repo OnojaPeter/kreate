@@ -41,7 +41,8 @@ const talentSignupPost = async (req, res) => {
   
       const newUser = new User({ fname, lname, email, password, role: 'talent' });
       await newUser.save();
-  
+      
+      req.flash('success', 'Please Login with your email and password');
       res.redirect('/login');
     } catch (err) {
       console.error(err);
@@ -62,6 +63,7 @@ const talentSignupPost = async (req, res) => {
       const newUser = new User({ fname, lname, email, password, role: 'client' });
       await newUser.save();
   
+      req.flash('success', 'Please Login with your email and password');
       res.redirect('/login');
     } catch (err) {
       console.error(err);

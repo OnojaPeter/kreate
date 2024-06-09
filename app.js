@@ -14,8 +14,8 @@ const app = express();
 const PORT = 3000;
 
 // mongodb connetion
-const uri = 'mongodb://127.0.0.1:27017/Kreate';
-// const uri = process.env.MONGODB_URI;
+// const uri = 'mongodb://127.0.0.1:27017/Kreate';
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri);
 const db = mongoose.connection;
 // Event listeners for connection status
