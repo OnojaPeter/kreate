@@ -39,7 +39,16 @@
 
                         <div class="w-[100%] flex flex-col gap-2">
                             <label class="font-medium" for="password">Password</label>
-                            <input class="border rounded-md h-12 focus:outline-none focus:border-[#10B981] px-6" type="password" name="password" id="password" placeholder="Password (8 or more characters)">
+                            <div class="relative">
+                                <input class="border rounded-md w-full h-12 focus:outline-none focus:border-[#10B981] px-6" type="password" name="password" id="password" placeholder="Password (8 or more characters)">
+                            
+                                <button type="button" id="toggleSignupPassword" class="absolute top-0 right-0 px-2 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -75,6 +84,13 @@
                 }, 4000); 
             }
             
+            const toggleSignupPassword = document.getElementById('toggleSignupPassword');
+            toggleSignupPassword.addEventListener('click', function() {
+                const passwordField = document.getElementById('password');
+                const fieldType = passwordField.getAttribute('type');
+                const newType = fieldType === 'password' ? 'text' : 'password';
+                passwordField.setAttribute('type', newType);
+            });
         });
     </script>
 
