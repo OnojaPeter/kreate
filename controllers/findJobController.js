@@ -28,7 +28,7 @@ async function findJobController (req, res) {
 
 async function findJobQuery (req, res) {
     try {
-        const { jobType, jobCategory, jobLevel, salary, searchTitle, searchLocation, page = 1, limit = 3  } = req.query;
+        const { jobType, jobCategory, jobLevel, salary, searchTitle, searchLocation, page = 1, limit = 5  } = req.query;
         // console.log('search title:', searchTitle)
         const query = {};
 
