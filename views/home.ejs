@@ -217,9 +217,7 @@
             const form = event.target;
             const formData = new FormData(form);
             const jsonData = Object.fromEntries(formData.entries());
-            // console.log('jsondata:', jsonData);
 
-            // document.getElementById('subscribeFormBtn').classList.add('animate-spin')
             const subscribeFormBtn = document.getElementById('subscribeFormBtn');
             const subscribeSuccessMessage = document.getElementById('message');
             const subscribeErrorMessage = document.getElementById('messageError')
@@ -245,10 +243,8 @@
                     throw new Error('Network response was not ok');
                 }
 
-                const result = await response.json();
-                // console.log(result);               
+                const result = await response.json();              
                 subscribeSuccessMessage.innerText = result.message;
-
                 subscribeSuccessMessage.classList.remove('hidden')
                 setTimeout(() => {
                     subscribeSuccessMessage.classList.add('hidden');
